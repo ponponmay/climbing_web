@@ -10,19 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        *{
+            font-family:'Noto Sans TC',  'Dela Gothic One','DotGothic16';
+        }
         body{
             /* background-color: coral; */
             background-image:url(images/logo_big_white.svg) ,  url(images/bg.svg);
-
             background-size: contain , cover;
             background-repeat: no-repeat , no-repeat;
             background-position: center top , center top;
         }
+
         .vk{
             height: 100vh;
             width: 100%;
             overflow: hidden;
-            
         }
         .carabiner{
             background: url(images/carabiner.svg) no-repeat center top;
@@ -41,11 +43,17 @@
         .carabiner_check{
             width: 50px;
             height: 50px;
-            /* background-color: #ccc; */
+            border-radius: 50%;
+            border: 2px dashed #fff;
+            color: #fff;
+            line-height: 45px;
+            text-align: center;
+            animation: clickBtn 2s ease-in-out infinite ,turnrun 3s linear infinite;
+        
             position: absolute;
             left: 50%;
             bottom: 0;
-            transform: translateX(-25%);
+            transform: translate(-30%, -10px);
             /* 
             carabiner_check 要點擊了才會觸發掛繩, 所以他不能被穿透
             */
@@ -55,6 +63,42 @@
             */
             z-index: 20;
         }
+        .carabiner_check p{
+            letter-spacing: 1px;
+            animation: turnback 3s linear infinite;
+            user-select: none;
+        }
+        @keyframes clickBtn {
+            0% ,100%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }     
+        }
+        @keyframes turnrun {
+            0% {
+                transform:translate(-30%, -10px) rotate(0deg);
+            }
+            50%{
+                transform:translate(-30%, -10px) rotate(180deg);
+            }
+            100%{
+                transform:translate(-30%, -10px) rotate(360deg);
+            }
+        }
+        @keyframes turnback {
+            0% {
+                transform: rotate(0deg);
+            }
+            50%{
+                transform: rotate(-180deg);
+            }
+            100%{
+                transform: rotate(-360deg);
+            }
+        }
+
         .upper{
             position: absolute;
             background-image:url(images/logo_big_white.svg) ,  url(images/bg.svg);
@@ -63,21 +107,29 @@
             background-position: center top , center top;
             z-index: 10;
         }
+
+        .real_vk{
+            width: 100%;
+            /* overflow: hidden; */
+        }
+
         .start_rope{
             position: absolute;
             width: 300px;
             pointer-events: none;
             z-index: 30;
-
-
+            user-select: none;
         }
         .rope_self{
             transform:translateY(-3%);
-            display: flex;  
+            display: flex;
+            position: sticky;  
+            top: 0;
         }
         .rope_self img{
             margin: 0 auto;
-            height: 900px;
+            height: 1000px;
+            
         }
         .rope_straight{
             position: absolute;
@@ -88,6 +140,7 @@
             left: 50%;
             z-index: -1;
         }
+
         .position_relative{
             position: relative
         }
@@ -100,10 +153,12 @@
             <img src="images/rope_start.svg" alt="">
         </div>   
         <div class="carabiner">
-            <div class="carabiner_check"></div>
+            <div class="carabiner_check">
+                <p>click</p>
+            </div>
         </div>
     </div>
-    <div class="container vk real_vk">
+    <div class="container  real_vk">
         <div class="row">
             <div class="col-12">
                 <div class="carabiner">

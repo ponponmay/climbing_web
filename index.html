@@ -30,6 +30,25 @@
             flex-direction: column;
             align-items: flex-end;
         }
+      
+        .back_btn{
+            background-color: var(--color-white);
+            width: 50%;
+            padding: 3% 5%;
+            border-radius: 30px;
+            margin: auto;
+        }
+        .modal-content{
+            background-color: transparent;
+            border: none;
+
+        }
+        .window_shadow{
+            box-shadow: 10px 10px 10px #4b4b4b9c;
+        }
+        .modal-footer{
+            border: none;
+        }
     </style>
         
 
@@ -93,34 +112,27 @@
                     <div class="window_fram">
                         <img src="images/window_fram_bg.svg" alt="">
                     </div>
-                    <div class="climbing_type_box w-75 d-flex position-absolute ">
-                        <div id="climbing_type_speed" class="climbing_type text-center">
+                    <div class="climbing_type_box w-75 d-flex position-absolute " >
+                        <div id="climbing_type_speed" class="climbing_type text-center" type ="speed" data-bs-toggle="modal" data-bs-target="#exampleModalspeed">
                             <p class="m-0 ff-16bit fs-7 color_pink">Speed Climbing</p>
                             <h2 class="ff-16bit color_pink">速度賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-speedclimbing2.png" alt="">
                         </div>
-                        <div id="climbing_type_lead" class="climbing_type text-center">
+                        <div id="climbing_type_lead" class="climbing_type text-center" type ="lead" data-bs-toggle="modal" data-bs-target="#exampleModallead">
                             <p class="m-0 ff-16bit fs-7 color_pink">Lead Climbing</p>
                             <h2 class="ff-16bit color_pink">先鋒賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-sportclimbing.png" alt="">
                         </div>
-                        <div id="climbing_type_bouldering" class="climbing_type text-center">
+                        <div id="climbing_type_bouldering" class="climbing_type text-center" type ="bouldering" data-bs-toggle="modal" data-bs-target="#exampleModalbouldering">
                             <p class="m-0 ff-16bit fs-7 color_pink">Bouldering</p>
                             <h2 class="ff-16bit color_pink">抱石賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-bouldering.png" alt="">
                         </div>
                     </div>
-                    <div class="climbing_type_show d-flex position-fixed">
-                        <div class="climbing_photo">
-                            <img src="images/window_speed.svg" alt="">
-                        </div>
-                        <div class="climbing_text">
-                            <img src="images/text_speed.svg" alt="">
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-3 d-none  d-lg-flex d-flex flex-column justify-content-between">
                 <div class="floder floder_speed mt-5 text-center ">
@@ -267,7 +279,65 @@
             </div>
         </div>
     </footer> 
-
+    <!-- -------------------------彈跳視窗------------- -->
+    
+    <!-- ------------------------------speed Modal -->
+    <div class="modal fade" id="exampleModalspeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body ">
+                <div class="climbing_text  text-center my-5 ">
+                    <img class="h-75  window_shadow" src="images/text_speed.svg" alt="">
+                </div>
+                <div class="climbing_photo  text-center mb-5">
+                    <img class="h-75  window_shadow" src="images/window_speed.svg" alt="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
+                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                </div>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    <!-- -----------------lead climbing------------------------ -->
+    <div class="modal fade" id="exampleModallead" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="climbing_text   text-center my-5">
+                    <img class="h-75  window_shadow" src="images/text_lead.svg" alt="">
+                </div>
+                <div class="climbing_photo  text-center mb-5">
+                    <img class="h-75 window_shadow" src="images/window_lead.svg" alt="">
+                </div>
+                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
+                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- --------------------------bouldering--------------------------------- -->
+    <div class="modal fade" id="exampleModalbouldering" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="climbing_text   text-center my-5">
+                    <img class="h-75 window_shadow" src="images/text_bouldering.svg" alt="">
+                </div>
+                <div class="climbing_photo  text-center mb-5">
+                    <img class="h-75 window_shadow" src="images/window_bouldering.svg" alt="">
+                </div>
+                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
+                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
 
 
@@ -346,7 +416,7 @@
                 }   
             })
         }
-        // -----------------手機版本選單。點選後。選單自動消失
+        // -----------------手機版本選單。點選後。選單自動消失----------------
         $('.menu_a_group').click(function(){
             if($('nav').attr('class')=='mobile_menu'){
             console.log(11111)
@@ -358,10 +428,9 @@
             $('.fa-xmark').css('display','none')  
             $('.menu_a ').css('display','none')
             }
-        })
+        })  
 
-        
-       
+    
 
     </script>
 </body>

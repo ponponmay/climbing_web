@@ -22,7 +22,9 @@
         font-family:'Noto Sans TC',  'Dela Gothic One','DotGothic16';
         outline: #045E9E;
     }
-    
+    .container{
+        max-width: 960px;
+    }
 
 
     ::-webkit-scrollbar {
@@ -182,7 +184,7 @@
         }
         .climbing_type_box{
             right: 5%;
-            bottom: 8%;
+            bottom: 14%;
         }
         .sticker_card{
             aspect-ratio: 6/7;
@@ -369,6 +371,8 @@
         width: 100%;
         height: auto;
         overflow: hidden;
+        /* overflow-x: hidden; */
+        /* overflow-y: auto; */
         position: sticky !important;  
         top: 0px;
         transform: translateY(-3%) ;
@@ -429,15 +433,7 @@
     .floder_lead{
         transform: translateX(55%);
     }
-    .climbing_type_show{
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--color-blue4);
-        z-index: 60;
-        top: 0;
-
-
-    }
+    
 
     /* -------------------------sec2 equipment------------------------------------- */
     

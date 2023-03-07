@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <style>
         :root{
             --color-white:#FAF9DB;
@@ -31,8 +32,13 @@
         }
         *{
             font-family:'Noto Sans TC',  'Dela Gothic One','DotGothic16';
+            outline: #045E9E;
         }
-
+        /* body,html{
+            margin: 0;
+            padding: 0;
+            
+        } */
 
 
         ::-webkit-scrollbar {
@@ -44,7 +50,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position:  center top;
-            /* overflow: hidden; */
+            overflow: hidden;
             /* 畫面一開始不給滑動 */
         }
         .ff-16bit{
@@ -66,12 +72,13 @@
         .box_shadow{
             box-shadow: 0 5px 10px #ac4d669c;
         }
-        .mb-200px{
-            margin-bottom: 200px;
-        }
+        
 
         /* 手機版 */
         @media screen and (max-width:992px) {
+            .mb-200px{
+            margin-bottom: 100px;
+        }
             .sticker_card{
                 aspect-ratio: 1/2.5;
                 background-image: url(images/sticker_sm_body.svg);
@@ -102,10 +109,35 @@
                 left: 40%;
                 width: 50%
             }
+            .gym_card{
+                background-color: #FAF9DB;
+                margin: auto;
+                padding: 160px 40px 10px 40px;
+                position: relative;
+                border-radius: 20px;
+                box-shadow: 0 5px 10px #ac4d669c;  
+            }
+            .gym_photo{
+                width: 80%;
+                position: absolute;
+                top: -10%;
+                left:50%;
+                transform: translateX(-50%);
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 5px 10px #b3b3b39c;
+            }
+            .gym_info{
+                color: #045E9E;
+            }
+                
 
         }
         /* 電腦版 */
         @media screen and (min-width:992px) {
+            .mb-200px{
+            margin-bottom: 200px;
+        }
             .sticker_card{
                 aspect-ratio: 6/7;
                 background-image: url(images/sticker_lg_body.svg);
@@ -138,6 +170,29 @@
                 top: 63%;
                 left: 50%;
                 
+            }
+            .w-lg-50{
+                width: 50% !important; 
+            }
+            .gym_card{
+                background-color: #FAF9DB;
+                margin: auto;
+                padding: 80px 40px 50px 370px;
+                position: relative;
+                border-radius: 20px;
+                box-shadow: 0 5px 10px #ac4d669c;  
+            }
+            .gym_photo{
+                height: 80%;
+                position: absolute;
+                top: 10%;
+                left:-8%;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 5px 10px #b3b3b39c;
+            }
+            .gym_info{
+                color: #045E9E;
             }
             
         }
@@ -361,9 +416,64 @@
             top: 80%;
             left: 50%;
         }
-       #heigher{
-         height: 500vh;
-       }
+        /* -----------------------------sec3 gym-------------------------------------- */
+        .gym_info h4{
+            font-family: 'Dela Gothic One';
+            letter-spacing: 1px;  
+        }
+        .gym_info p{
+            margin-bottom: 0.5rem;
+        }
+        .page_dot_box{
+            display: flex;
+            justify-content: center;
+        }
+        .page_dot{
+            width: 1rem;
+            height: 1rem;
+            background-color: #F5AED0;
+            border-radius: 50%;
+            margin: 2px 8px;
+
+        }
+        
+
+       /* ----------------marquee mobile------------------- */
+       .horizontalline {
+            
+            background: url(images/marquee_horizontal.svg) repeat-x  1px 0;
+            background-size: 200% ;
+            height:3vh;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            animation: line-move 15s linear infinite 0s;
+            display: flex;
+            
+        }
+
+        .horizontalline2 {
+            background:url(images/marquee_horizontal.svg) repeat-x  1px 0;
+            background-size: 200%;
+            height:3vh;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            animation: line-move2 15s linear infinite 0s;
+            display: flex;
+            
+        
+        }
+        @keyframes line-move{
+                from{transform: translateX(0%)}
+                to{transform: translateX(100%)}}
+
+        @keyframes line-move2{
+                from{transform: translateX(-100%)}
+                to{transform: translateX(0%)}}
+
         /* -----------------------marquee------------------------------------ */
        .both_line{
             padding: 0;
@@ -429,167 +539,262 @@
                 from{transform: translateY(-100%)}
                 to{transform: translateY(0%)}}
 
+    /* ------------------footer--------------------------------- */
+    footer{
+        background-color: var(--color-green2);
+        padding: 50px 0;
+        /* position: sticky; */
+        bottom: 0;
+        /* z-index: -50; */
+    }
+    .arrow {
+        text-align: end;
+        padding: 10px 15px;
+    }
+    .arrow p{
+        right: 10%;
+        top: -5%;
+        padding: 0;
+        color: var(--color-white);
+
+    }
+    
+    input{
+        border: #FAF9DB solid 2px;
+        border-radius: 30px ;
+        font-size: 1rem;
+        color: #045E9E;
+        background-color: transparent;
+        padding: 0 0 5px 13px;
+        width: 100%;
+    
+    }
+    input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: var(--color-blue4);
+        font-size: 0.5rem;
+        opacity: 0.5; 
+    } 
+    button{
+        border: #FAF9DB solid 2px;
+        border-radius: 30px;
+        background-color: #FAF9DB;
+        padding: 5px 20px;
+        font-size: 0.5rem;
+        color: #045E9E;
+        right: 0;
+        
+        
+    }  
+
     </style>
 </head>
 <body>
-    <div class="vk upper">
-        <div class="start_rope">
-            <img src="images/rope_start.svg" alt="">
-        </div>   
-        <div class="carabiner">
-            <div class="carabiner_check">
-                <p>click</p>
-            </div>
-        </div>
-    </div>
-    <div class="real_vk">
-    </div>
-    <div class="carabiner ">
-    </div>
-    <div class=" rope_box ">
-        <div class="rope_self">
-            <img src="images/rope_self.svg" alt="">
-        </div>
-        <div class="rope_straight">
-            <img src="images/rope_straight.svg" alt="">
-        </div>
-    </div>
-    <!-- -------------------nav-------------------------------------- -->
-    <nav >
-        <a class="text-decoration-none ms-2 " href="">TOP</a>
-        <a class="text-decoration-none ms-2 " href="">COMPETITION</a>
-        <a class="text-decoration-none ms-2 " href="">EQUIPMENT</a>
-        <a class="text-decoration-none ms-2 " href="">GYM</a>
-    </nav>
-    <!-- -----------------------sec1 competition-------------------------------- -->
-    <div class="container competition mb-200px">
-        <div class="row title mb-3">
-            <div class="col-6 col-lg-4">
-                <img src="images/title_completment_p.svg" alt="">
-            </div>
-            
-        </div>
-        <div class="row ">
-            <div class="col-12 col-lg-8 position-relative h-auto">
-                <div class="window_fram">
-                    <img src="images/window_fram_bg.svg" alt="">
+    
+        <div class="vk upper">
+            <div class="start_rope">
+                <img src="images/rope_start.svg" alt="">
+            </div>   
+            <div class="carabiner">
+                <div class="carabiner_check">
+                    <p>click</p>
                 </div>
-                <div class="climbing_type_box w-75 d-flex position-absolute ">
-                    <div class="climbing_type text-center">
-                        <p class="m-0 ff-16bit fs-7 color_pink">Speed Climbing</p>
-                        <h2 class="ff-16bit color_pink">速度賽</h2>
-                        <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
-                        <img class="w-100" src="images/400x600-speedclimbing2.png" alt="">
+            </div>
+        </div>
+        <div class="real_vk">
+        </div>
+        <div class="carabiner ">
+        </div>
+        <div class=" rope_box ">
+            <div class="rope_self">
+                <img src="images/rope_self.svg" alt="">
+            </div>
+            <div class="rope_straight">
+                <img src="images/rope_straight.svg" alt="">
+            </div>
+        </div>
+        <!-- -------------------nav-------------------------------------- -->
+        <nav >
+            <a class="text-decoration-none ms-2 " href="">TOP</a>
+            <a class="text-decoration-none ms-2 " href="">COMPETITION</a>
+            <a class="text-decoration-none ms-2 " href="">EQUIPMENT</a>
+            <a class="text-decoration-none ms-2 " href="">GYM</a>
+        </nav>
+        <!-- -----------------------sec1 competition-------------------------------- -->
+        <div class="container competition mb-200px">
+            <div class="row title mb-3">
+                <div class="col-6 col-lg-4">
+                    <img src="images/title_completment_p.svg" alt="">
+                </div>
+                
+            </div>
+            <div class="row ">
+                <div class="col-12 col-lg-8 position-relative h-auto">
+                    <div class="window_fram">
+                        <img src="images/window_fram_bg.svg" alt="">
                     </div>
-                    <div class="climbing_type text-center">
-                        <p class="m-0 ff-16bit fs-7 color_pink">Lead Climbing</p>
-                        <h2 class="ff-16bit color_pink">先鋒賽</h2>
-                        <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
-                        <img class="w-100" src="images/400x600-sportclimbing.png" alt="">
-                    </div>
-                    <div class="climbing_type text-center">
-                        <p class="m-0 ff-16bit fs-7 color_pink">Bouldering</p>
-                        <h2 class="ff-16bit color_pink">抱石賽</h2>
-                        <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
-                        <img class="w-100" src="images/400x600-bouldering.png" alt="">
+                    <div class="climbing_type_box w-75 d-flex position-absolute ">
+                        <div class="climbing_type text-center">
+                            <p class="m-0 ff-16bit fs-7 color_pink">Speed Climbing</p>
+                            <h2 class="ff-16bit color_pink">速度賽</h2>
+                            <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
+                            <img class="w-100" src="images/400x600-speedclimbing2.png" alt="">
+                        </div>
+                        <div class="climbing_type text-center">
+                            <p class="m-0 ff-16bit fs-7 color_pink">Lead Climbing</p>
+                            <h2 class="ff-16bit color_pink">先鋒賽</h2>
+                            <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
+                            <img class="w-100" src="images/400x600-sportclimbing.png" alt="">
+                        </div>
+                        <div class="climbing_type text-center">
+                            <p class="m-0 ff-16bit fs-7 color_pink">Bouldering</p>
+                            <h2 class="ff-16bit color_pink">抱石賽</h2>
+                            <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
+                            <img class="w-100" src="images/400x600-bouldering.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 d-none  d-lg-flex d-flex flex-column justify-content-between">
-               <div class="floder floder_speed mt-5 text-center ">
-                <img class="w-50 " src="images/pink_floder.png" alt="">
-                <p class="ff-16bit fs-5 color_darkblue">Speed Climbing</p>
-               </div>
-               <div class="floder floder_lead  text-center">
-                <img class="w-50" src="images/pink_floder.png" alt="">
-                <p class="ff-16bit fs-5 color_darkblue">Lead Climbing</p>
-               </div>
-               <div class="floder floder_boul mb-5  text-center">
-                <img class="w-50" src="images/pink_floder.png" alt="">
-                <p class="ff-16bit fs-5 color_darkblue">Bouldering</p>
-               </div>
+                <div class="col-lg-3 d-none  d-lg-flex d-flex flex-column justify-content-between">
+                <div class="floder floder_speed mt-5 text-center ">
+                    <img class="w-50 " src="images/pink_floder.png" alt="">
+                    <p class="ff-16bit fs-5 color_darkblue">Speed Climbing</p>
+                </div>
+                <div class="floder floder_lead  text-center">
+                    <img class="w-50" src="images/pink_floder.png" alt="">
+                    <p class="ff-16bit fs-5 color_darkblue">Lead Climbing</p>
+                </div>
+                <div class="floder floder_boul mb-5  text-center">
+                    <img class="w-50" src="images/pink_floder.png" alt="">
+                    <p class="ff-16bit fs-5 color_darkblue">Bouldering</p>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- ---------------------------sec2 equipment--------------------------------- -->
-    <div class="container sec_equipment mb-200px">
-        <div class="row title mb-3">
-            <div class="col-6 col-lg-4 ">
-                <img  src="images/title_equipment_p.svg" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6 sticker_card d-flex position-relative">
-                <div class="sticker " id="sticker_helmet">
-                    <img  src="images/sticker_helmet.svg" alt="">                    
-                </div>
-                <div class="sticker " id="sticker_harness">
-                    <img  src="images/sticker_harness.svg" alt="">
-                </div>
-                <div class="sticker " id="sticker_chalkbag">
-                    <img src="images/sticker_chalkbag.svg" alt="">
-                </div>
-                <div class="sticker" id="sticker_shoes">
-                    <img src="images/sticker_shoes.svg" alt="">
+        <!-- ---------------------------sec2 equipment--------------------------------- -->
+        <div class="container sec_equipment mb-200px">
+            <div class="row title mb-3">
+                <div class="col-6 col-lg-4 ">
+                    <img  src="images/title_equipment_p.svg" alt="">
                 </div>
             </div>
-            <div class="d-none d-lg-block col-lg-6 sticker_game">
-                <div id="ans_helmet" class="sticker_ans d-none d-lg-block"></div>
-                <div id="ans_harness" class="sticker_ans d-none d-lg-block"></div>
-                <div id="ans_chalkbag" class="sticker_ans d-none d-lg-block"></div>
-                <div id="ans_shoes" class="sticker_ans d-none d-lg-block"></div>
-            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 sticker_card d-flex position-relative">
+                    <div class="sticker " id="sticker_helmet">
+                        <img  src="images/sticker_helmet.svg" alt="">                    
+                    </div>
+                    <div class="sticker " id="sticker_harness">
+                        <img  src="images/sticker_harness.svg" alt="">
+                    </div>
+                    <div class="sticker " id="sticker_chalkbag">
+                        <img src="images/sticker_chalkbag.svg" alt="">
+                    </div>
+                    <div class="sticker" id="sticker_shoes">
+                        <img src="images/sticker_shoes.svg" alt="">
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-6 sticker_game">
+                    <div id="ans_helmet" class="sticker_ans d-none d-lg-block"></div>
+                    <div id="ans_harness" class="sticker_ans d-none d-lg-block"></div>
+                    <div id="ans_chalkbag" class="sticker_ans d-none d-lg-block"></div>
+                    <div id="ans_shoes" class="sticker_ans d-none d-lg-block"></div>
+                </div>
 
-        </div>
-    </div>
-<!-- ------------------------------sec3 gym------------------------------------ -->
-    <div class="container sec_gym ">
-        <div class="row title mb-3">
-            <div class="col-6 col-lg-4">
-                <img  src="images/title_gym_p.svg" alt="">
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-3 d-flex ">
-                <div class="location_btn">
-                    <img class="w-50" src="images/gym_north_b.svg" alt="">
-                </div>
-                <div class="location_btn">
-                    <img class="w-50" src="images/gym_middle_b.svg" alt="">
-                </div>
-                <div class="location_btn">
-                    <img class="w-50" src="images/gym_south_b.svg" alt="">
-                </div>
-                <div class="location_btn">
-                    <img class="w-50" src="images/gym_east_b.svg" alt="">
+    <!-- ------------------------------sec3 gym------------------------------------ -->
+        <div class="container sec_gym mb-200px">
+            <div class="row title mb-3">
+                <div class="col-6 col-lg-4">
+                    <img  src="images/title_gym_p.svg" alt="">
                 </div>
             </div>
-            <div class="col-12 col-lg-9">
-                <div class="gym_card d-flex mx-4 mt-3">
-                    <div class="gym_photo w-50">
-                        <img class="w-100" src="images/gym_photo_mega.jpg" alt="">
+            <div class="row">
+                <div class="col-12 col-lg-3 d-flex flex-lg-column justify-content-around ps-lg-5">
+                    <div class="location_btn ">
+                        <img class="w-75 w-lg-50" src="images/gym_north_b.svg" alt="">
                     </div>
-                    <div class="gym_info">
-                        <p>MegaSTONE Climbing Gym</p>
-                        <p>242新北市新莊區中正路56巷5號</p>
-                        <p>02-8992-8991</p>
-                        <p>平日14:00~22:00 <br>假日11:00~19:00</p>
+                    <div class="location_btn ">
+                        <img class="w-75 w-lg-50" src="images/gym_middle_b.svg" alt="">
+                    </div>
+                    <div class="location_btn ">
+                        <img class="w-75 w-lg-50" src="images/gym_south_b.svg" alt="">
+                    </div>
+                    <div class="location_btn ">
+                        <img class="w-75 w-lg-50" src="images/gym_east_b.svg" alt="">
                     </div>
                 </div>
+                <div class="col-12 col-lg-9 mt-5">
+                    <div class="gym_card  mx-4 mt-3">
+                        <div class="gym_photo">
+                            <img class="w-100 h-100" src="images/gym_photo_mega.jpg" alt="">
+                        </div>
+                        <div class="gym_info mb-3">
+                            <h4>MegaSTONE Climbing Gym</h4>
+                            <p>新北市新莊區中正路56巷5號</p>
+                            <p>02-8992-8991</p>
+                            <p>平日14:00~22:00 <br>假日11:00~19:00</p>
+                            <div class="icon">
+                                <i class="fa-brands fa-facebook"></i>
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                        </div>
+                        <div class="page_dot_box">
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    <!-- --------------------------marquee-跑馬燈--------------------- -->
+    <!-- 手機水平跑馬燈 -->
+        <section class="marquee_h  d-lg-none" >     
+            <div class="horizontalline"></div>
+            <div class="horizontalline2"></div>
+        </section>    
 
-    <section id="heigher">
-    </section>
-    <section class="both_line d-none d-lg-block" id="both_line">
+    <!-- 電腦垂直跑馬燈 -->
+        <section class="both_line d-none d-lg-block" id="both_line">
+                
+            <div class="leftline"></div>
+            <div class="leftline2"></div>
             
-        <div class="leftline"></div>
-        <div class="leftline2"></div>
+            <div class="rightline"></div>
+            <div class="rightline2"></div>
+        </section>
+    <!-- ----------------------footer---------------------------- -->
+        <footer >
+            <div class="container">
+                <div class="row">
+                    <img class="w-50" src="images/logo.svg" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <p>Made By Peng,Shao-Tzu</p>
+                        <p>A Website About Climbing  </p>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <div class="arrow position-relative">
+                            <p class="position-absolute ff-16bit">Contant Us</p>
+                            <img class="w-50" src="images/icon_arrow_white.svg" alt="">
+                        </div>
+                        <div class="email d-flex position-relative">
+                            <input class="ff-16bit" type="text" placeholder="your e-mail" >
+                            <button class="ff-16bit position-absolute">Surbscr Now!</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
         
-        <div class="rightline"></div>
-        <div class="rightline2"></div>
-    </section>
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="./js/jquery-3.6.3.min.js"></script>
@@ -601,7 +806,7 @@
         // },0)
 
         
-      
+    
 
         // 滑鼠牽繩
         let  offsetX = null
@@ -626,15 +831,16 @@
 
             // 動態抓圖片的寬度並且除以2, 讓滑鼠在繩子頂端
             pageX = pageX - ($('.start_rope').width()/2)
-          
+        
             $('.start_rope').css('transform', `scaleY(1.1) translate(${pageX}px,${pageY}px)`)
-          
+        
         })
 
         // 主視覺點擊後掛繩
         
         $('.carabiner_check').click(function(){
             $('.upper').css('display', 'none')
+            $('.papa').css('overflow', 'auto')
             $('body').css('overflow', 'auto')
             $('.rope_box').css('opacity','1')
         })

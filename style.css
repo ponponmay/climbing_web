@@ -29,6 +29,7 @@
         display: none;
         /* 隱藏滾輪 */
     }
+
     body{
         /* background-image:  url(images/bg.svg);
         background-size: cover;
@@ -42,6 +43,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position:  center top;
+        
         
         
     }
@@ -75,6 +77,7 @@
         nav{
             display: flex;
             width: 100%;
+            height: auto;
             justify-content: space-between;
             padding: 10px 15px;
             position: fixed;
@@ -82,6 +85,7 @@
             right: 0;
             z-index: 50;
             color: var(--color-white);  
+            transition: 0.5s;
         }
         
         .climbing_type{
@@ -393,11 +397,17 @@
     }
 
     /* ----------------------nav----------------------------------------------------- */
-    
+   
+
     nav a{
         color: #fff;
         font-family: 'DotGothic16';
         letter-spacing: 1px;
+        text-decoration: none;
+    }
+    nav a:visited ,nav a:hover,nav a:active{
+        color: #fff;
+        text-decoration: underline;
     }
     /* --------------------sec1 competition--------------------- */
     .window_fram{
@@ -419,7 +429,16 @@
     .floder_lead{
         transform: translateX(55%);
     }
-    
+    .climbing_type_show{
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-blue4);
+        z-index: 60;
+        top: 0;
+
+
+    }
+
     /* -------------------------sec2 equipment------------------------------------- */
     
     .sticker_game{

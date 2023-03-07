@@ -12,8 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .climbing_type:hover .icon_down{
-        opacity: 1;
+        .mobile_menu{
+            height: 30%;
+            background-color: #4EC8B1;
+            flex-direction: column;
+            /* background-image: linear-gradient(45deg, #4EC8B1,#FFC65E ); */
+            align-items: flex-end;
+        }
+        .fa-xmark{
+            display: none;
+        }
+        .menu_a{
+            display: none;
+        }
+        .menu_a_grop_show{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
     </style>
         
@@ -23,15 +38,22 @@
 <body>
     <div class="papa position-relative">
         <nav >
-            <a  class="d-lg-none" href="">
+            <a id="top_logo" class="d-lg-none" href="">
                 <img class="w-25" src="images/logo.svg" alt="">
             </a>
-            <i id="menu_bar" class="fa-solid fa-bars d-lg-none"></i>
-            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">TOP</a>
-            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">COMPETITION</a>
-            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">EQUIPMENT</a>
-            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">GYM</a>
+            <div class="menu_btn" id="menu_bar">
+                <i class="fa-solid fa-bars d-lg-none"></i>
+                <i class="fa-solid fa-xmark d-lg-none"></i>
+            </div>
+            <div class="menu_a_group ">
+                <a class="menu_a  ms-2 mb-2 d-lg-inline" href="#topvk">TOP</a>
+                <a class="menu_a  ms-2 mb-2 d-lg-inline" href="#sec1">COMPETITION</a>
+                <a class="menu_a  ms-2 mb-2 d-lg-inline" href="#sec2">EQUIPMENT</a>
+                <a class="menu_a  ms-2 mb-2 d-lg-inline" href="#sec3">GYM</a>
+            </div>
+            
         </nav>
+        <!-- -------------------nav-------------------------------------- -->
         <div class="vk upper">
             <div class="start_rope">
                 <img src="images/rope_start.svg" alt="">
@@ -42,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="real_vk">
+        <div id="topvk" class="real_vk">
         </div>
         <div class="carabiner_outside">
             <div class="carabiner ">
@@ -56,12 +78,12 @@
                 <img src="images/rope_straight.svg" alt="">
             </div>
         </div>
-        <!-- -------------------nav-------------------------------------- -->
+        
        
         <!-- -----------------------sec1 competition-------------------------------- -->
-        <div class="container competition mb-200px">
-            <div class="row title mb-3">
-                <div class="col-6 col-lg-4">
+        <div id="sec1" class="container competition mb-200px pt-5">
+            <div class="row title mb-3 ">
+                <div class="col-6 col-lg-4 ">
                     <img src="images/title_completment_p.svg" alt="">
                 </div>
                 
@@ -72,23 +94,31 @@
                         <img src="images/window_fram_bg.svg" alt="">
                     </div>
                     <div class="climbing_type_box w-75 d-flex position-absolute ">
-                        <div class="climbing_type text-center">
+                        <div id="climbing_type_speed" class="climbing_type text-center">
                             <p class="m-0 ff-16bit fs-7 color_pink">Speed Climbing</p>
                             <h2 class="ff-16bit color_pink">速度賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-speedclimbing2.png" alt="">
                         </div>
-                        <div class="climbing_type text-center">
+                        <div id="climbing_type_lead" class="climbing_type text-center">
                             <p class="m-0 ff-16bit fs-7 color_pink">Lead Climbing</p>
                             <h2 class="ff-16bit color_pink">先鋒賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-sportclimbing.png" alt="">
                         </div>
-                        <div class="climbing_type text-center">
+                        <div id="climbing_type_bouldering" class="climbing_type text-center">
                             <p class="m-0 ff-16bit fs-7 color_pink">Bouldering</p>
                             <h2 class="ff-16bit color_pink">抱石賽</h2>
                             <img class="w-15 icon_down" src="images/icon_down.svg" alt="">
                             <img class="w-100" src="images/400x600-bouldering.png" alt="">
+                        </div>
+                    </div>
+                    <div class="climbing_type_show d-flex position-fixed">
+                        <div class="climbing_photo">
+                            <img src="images/window_speed.svg" alt="">
+                        </div>
+                        <div class="climbing_text">
+                            <img src="images/text_speed.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -109,7 +139,7 @@
             </div>
         </div>
         <!-- ---------------------------sec2 equipment--------------------------------- -->
-        <div class="container sec_equipment mb-200px">
+        <div id="sec2" class="container sec_equipment mb-200px pt-5">
             <div class="row title mb-3">
                 <div class="col-6 col-lg-4 ">
                     <img  src="images/title_equipment_p.svg" alt="">
@@ -140,7 +170,7 @@
             </div>
         </div>
     <!-- ------------------------------sec3 gym------------------------------------ -->
-        <div class="container sec_gym pb-5">
+        <div id="sec3" class="container sec_gym pb-5 pt-5">
             <div class="row title mb-3">
                 <div class="col-6 col-lg-4">
                     <img  src="images/title_gym_p.svg" alt="">
@@ -287,24 +317,51 @@
             $('.upper').css('display', 'none')
             $('body').css('overflow', 'auto')
             $('.rope_box').css('opacity','1')
-            $('.papa').css('z-index','-50')
+            $('.papa').css('z-index','1')
         })
 
-
-
+        // ---------------手機版本選單開啟-----------------------
+        let menu = true
         console.log($(window).width())
         if ($(window).width()<=992){
-            console.log(1111111111111)
             $('#menu_bar').click(function(){
-                console.log(2222222222222222)
-                $('nav').css('width','100%').css('height','100%').css('background','pink')
-
+                if(menu == true){
+                $('nav').addClass('mobile_menu')
+                $('.menu_a_group').addClass('menu_a_grop_show')
+                $('#top_logo').css('display', 'none')
+                $('#top_logo').css('order','3')
+                $('.fa-bars').css('display','none')
+                $('.fa-xmark').css('display','inline')
+                $('.menu_a').css('display','inline')
+                menu = false
+                }else{
+                    menu = true
+                    $('nav').removeClass('mobile_menu')
+                    $('.menu_a_group').removeClass('menu_a_grop_show')
+                    $('#top_logo').css('display', 'block')
+                    $('#top_logo ').css('order','0')
+                    $('.fa-bars').css('display','inline')
+                    $('.fa-xmark').css('display','none')  
+                    $('.menu_a ').css('display','none')
+                }   
             })
-            
         }
+        // -----------------手機版本選單。點選後。選單自動消失
+        $('.menu_a_group').click(function(){
+            if($('nav').attr('class')=='mobile_menu'){
+            console.log(11111)
+            $('nav').removeClass('mobile_menu')
+            $('.menu_a_group').removeClass('menu_a_grop_show')
+            $('#top_logo').css('display', 'block')
+            $('#top_logo ').css('order','0')
+            $('.fa-bars').css('display','inline')
+            $('.fa-xmark').css('display','none')  
+            $('.menu_a ').css('display','none')
+            }
+        })
 
         
-        // ---------------------vk-----------------------------------------------
+       
 
     </script>
 </body>

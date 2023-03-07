@@ -10,586 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root{
-            --color-white:#FAF9DB;
-            --color-yellow1:#F8F196;
-            --color-yellow2:#F5DE65;
-            --color-yellow3:#F5CB91;
-            --color-yellow4:#FFC65E;
-            --color-yellow5:#F7AC25;
-            --color-pink1:#F7D6EB;
-            --color-pink2:#F5AED0;
-            --color-pink3:#EB8EBB;
-            --color-pink4:#EA7494;
-            --color-blue1:#A1D6F6;
-            --color-blue2:#7ACCE4;
-            --color-blue3:#6FA0D3;
-            --color-blue4:#045E9E;
-            --color-green1:#B5DDC2;
-            --color-green2:#4EC8B1;
-            --color-brain:#8F6C4D;
-        }
-        *{
-            font-family:'Noto Sans TC',  'Dela Gothic One','DotGothic16';
-            outline: #045E9E;
-        }
-        /* body,html{
-            margin: 0;
-            padding: 0;
-            
-        } */
-
-
-        ::-webkit-scrollbar {
-            display: none;
-            /* 隱藏滾輪 */
-        }
-        body{
-            background-image:  url(images/bg.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position:  center top;
-            overflow: hidden;
-            /* 畫面一開始不給滑動 */
-        }
-        .ff-16bit{
-            font-family: 'DotGothic16';
-        }
-        .fs-7{
-            font-size: 12px;
-        }
-
-        .color_darkblue{
-            color: #045E9E;
-        }
-        .color_pink{
-            color: #EA7494;
-        }
-        .w-15{
-            width: 15%;
-        }
-        .box_shadow{
-            box-shadow: 0 5px 10px #ac4d669c;
-        }
-        
-
-        /* 手機版 */
-        @media screen and (max-width:992px) {
-            .mb-200px{
-            margin-bottom: 100px;
-        }
-            .sticker_card{
-                aspect-ratio: 1/2.5;
-                background-image: url(images/sticker_sm_body.svg);
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-           .sticker{
-                position: absolute;
-            }
-            #sticker_helmet{
-                width: 25%;
-                top: 10%;
-                left: 25%;
-            }
-            #sticker_harness{
-                width: 35%;
-                top: 33%;
-                left:50%;
-            }
-
-            #sticker_chalkbag{
-                width: 20%;
-                top: 43%;
-                left: 20%;
-            }
-            #sticker_shoes{
-                top: 73%;
-                left: 40%;
-                width: 50%
-            }
-            .gym_card{
-                background-color: #FAF9DB;
-                margin: auto;
-                padding: 160px 40px 10px 40px;
-                position: relative;
-                border-radius: 20px;
-                box-shadow: 0 5px 10px #ac4d669c;  
-            }
-            .gym_photo{
-                width: 80%;
-                position: absolute;
-                top: -10%;
-                left:50%;
-                transform: translateX(-50%);
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 5px 10px #b3b3b39c;
-            }
-            .gym_info{
-                color: #045E9E;
-            }
-                
-
-        }
-        /* 電腦版 */
-        @media screen and (min-width:992px) {
-            .mb-200px{
-            margin-bottom: 200px;
-        }
-            .sticker_card{
-                aspect-ratio: 6/7;
-                background-image: url(images/sticker_lg_body.svg);
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            .sticker{
-                /* height: 200px; */
-                width: 20%;
-                position: absolute;
-            }
-            #sticker_helmet{
-                width: 18%;
-                top:27%;
-                left: 25%;
-            }
-            #sticker_harness{
-                width: 30%;
-                top: 27%;
-                left:50%;
-            }
-
-            #sticker_chalkbag{
-                width: 10%;
-                top: 60%;
-                left: 20%;
-            }
-            #sticker_shoes{
-                width: 35%;
-                top: 63%;
-                left: 50%;
-                
-            }
-            .w-lg-50{
-                width: 50% !important; 
-            }
-            .gym_card{
-                background-color: #FAF9DB;
-                margin: auto;
-                padding: 80px 40px 50px 370px;
-                position: relative;
-                border-radius: 20px;
-                box-shadow: 0 5px 10px #ac4d669c;  
-            }
-            .gym_photo{
-                height: 80%;
-                position: absolute;
-                top: 10%;
-                left:-8%;
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 5px 10px #b3b3b39c;
-            }
-            .gym_info{
-                color: #045E9E;
-            }
-            
-        }
-
-
-
-
-
-        .upper{
-            height: 100vh;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            /* background-image:url(images/logo_big_white.svg); */
-            background-size: contain ;
-            background-repeat: no-repeat ;
-            background-position: center top ;
-            z-index: 10;
-        }
- 
-        .start_rope{
-            position: absolute;
-            width: 300px;
-            pointer-events: none;
-            z-index: 30;
-            user-select: none;
-            
-        }
-       
-        .carabiner{
-            background: url(images/carabiner.svg) no-repeat center top;
-            width: 100%;
-            height: 250px;
-            margin-top: 80px;
-            position: relative;
-            z-index: -6;
-            /* 
-            pointer-events: none 的意思是讓該元素被穿透, 不會觸發滑鼠作用(像點擊)
-            carabiner_check 被包在 carabiner 裡面 
-            如果 carabiner 設定被穿透, 包在裡面的 carabiner_check 應該也會被穿透
-            那點擊了就會沒有作用
-            */
-            /* pointer-events: none; */
-        }
-        .carabiner_check{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px dashed #fff;
-            color: #fff;
-            line-height: 45px;
-            text-align: center;
-            animation: clickBtn 2s ease-in-out infinite ,turnrun 3s linear infinite;
-        
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translate(-30%, -10px);
-            /* 
-            carabiner_check 要點擊了才會觸發掛繩, 所以他不能被穿透
-            */
-            /* pointer-events: none; */
-            /* 
-            z-index 改成 20 才能被點到 
-            */
-            z-index: 20;
-        }
-        .carabiner_check p{
-            letter-spacing: 1px;
-            animation: turnback 3s linear infinite;
-            user-select: none;
-        }
-        @keyframes clickBtn {
-            0% ,100%{
-                opacity: 0;
-            }
-            50%{
-                opacity: 1;
-            }     
-        }
-        @keyframes turnrun {
-            0% {
-                transform:translate(-30%, -10px) rotate(0deg);
-            }
-            50%{
-                transform:translate(-30%, -10px) rotate(180deg);
-            }
-            100%{
-                transform:translate(-30%, -10px) rotate(360deg);
-            }
-        }
-        @keyframes turnback {
-            0% {
-                transform: rotate(0deg);
-            }
-            50%{
-                transform: rotate(-180deg);
-            }
-            100%{
-                transform: rotate(-360deg);
-            }
-        }
-
-        
-
-
-        .real_vk{
-            position: absolute;
-            top:0;
-            height: 100vh;
-            width: 100%;
-            /* overflow: hidden; */
-            background-image:url(images/logo_big_white.svg);
-            background-size: contain ;
-            background-repeat: no-repeat ;
-            background-position: center top ;
-        }
-       
-        .rope_box{
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            position: sticky !important;  
-            top: 0px;
-            transform: translateY(-3%) ;
-            opacity: 0;
-            z-index: -5;
-        }
-     
-        .rope_self{
-            transform:scaleY(1.1) ;
-            transform-origin: top center;
-            display: flex;
-            
-        }
-        .rope_self img{
-            margin: 0 auto;
-            height: 1000px;
-        }
-        .rope_straight{
-            position: absolute;
-            width: 15px;
-            transform:translateY(1.5%) scaleY(1.5)  rotate(-45deg)  ;
-            transform-origin: top left;
-            top: 0;
-            left: 50%;
-            z-index: -1;
-        }
-
-        /* ----------------------vk------------------------------------------------------ */
-        nav{
-            background-color: var(--color-pink3);
-            display: inline-block;  
-            padding: 15px 20px;
-            border-radius: 0 0 15px 15px;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 5px 10px #ac4d669c;
-            
-        }
-        nav a{
-            color: #fff;
-            font-family: 'DotGothic16';
-            letter-spacing: 1px;
-        }
-        /* --------------------sec1 competition--------------------- */
-        .window_fram{
-            width: 100%;
-            height: auto;
-        }
-        .climbing_type_box{
-            right: 5%;
-            bottom: 8%;
-        }
-        .icon_down{
-            opacity: 0;
-            transition: 0.3s;
-        }
         .climbing_type:hover .icon_down{
-            opacity: 1;
+        opacity: 1;
         }
-
-        .floder_speed{
-            transform: translateX(15%);
-        }
-        .floder_lead{
-            transform: translateX(55%);
-        }
-        
-        /* -------------------------sec2 equipment------------------------------------- */
-        
-        .sticker_game{
-            background-image: url(images/sticker_game.svg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center center ;
-            position: relative;
-        }
-        .sticker_ans{
-            width: 50px;
-            height: 50px;
-            background-color: #045E9E;
-            position: absolute;
-        }
-        #ans_helmet{
-            top: 30%;
-            left: 30%;
-        }
-        #ans_harness{
-            top: 55%;
-            left: 50%;
-        }
-        #ans_chalkbag{
-            top: 55%;
-            left: 30%;
-        }
-        #ans_shoes{
-            top: 80%;
-            left: 50%;
-        }
-        /* -----------------------------sec3 gym-------------------------------------- */
-        .gym_info h4{
-            font-family: 'Dela Gothic One';
-            letter-spacing: 1px;  
-        }
-        .gym_info p{
-            margin-bottom: 0.5rem;
-        }
-        .page_dot_box{
-            display: flex;
-            justify-content: center;
-        }
-        .page_dot{
-            width: 1rem;
-            height: 1rem;
-            background-color: #F5AED0;
-            border-radius: 50%;
-            margin: 2px 8px;
-
-        }
-        
-
-       /* ----------------marquee mobile------------------- */
-       .horizontalline {
-            
-            background: url(images/marquee_horizontal.svg) repeat-x  1px 0;
-            background-size: 200% ;
-            height:3vh;
-            width: 100%;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            animation: line-move 15s linear infinite 0s;
-            display: flex;
-            
-        }
-
-        .horizontalline2 {
-            background:url(images/marquee_horizontal.svg) repeat-x  1px 0;
-            background-size: 200%;
-            height:3vh;
-            width: 100%;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            animation: line-move2 15s linear infinite 0s;
-            display: flex;
-            
-        
-        }
-        @keyframes line-move{
-                from{transform: translateX(0%)}
-                to{transform: translateX(100%)}}
-
-        @keyframes line-move2{
-                from{transform: translateX(-100%)}
-                to{transform: translateX(0%)}}
-
-        /* -----------------------marquee------------------------------------ */
-       .both_line{
-            padding: 0;
-        }
-        .leftline {
-            
-            background: url(images/marquee_vertical.svg) repeat-y  1px 0;
-            background-size: 3vw ;
-            width:3vw;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            animation: low-code-move 15s linear infinite 0s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .leftline2 {
-            background:url(images/marquee_vertical.svg) repeat-y  1px 0;
-            background-size: 3vw;
-            width: 3vw;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            animation: low-code-move2 15s linear infinite 0s;
-            display: flex;
-            flex-direction: column;
-        
-        }
-        .rightline{
-            background:url(images/marquee_vertical.svg) repeat-y  7px 0;
-            background-size: 3vw;
-            width: 3vw;
-            position: fixed;
-            z-index: 90;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            animation: low-code-move 15s linear infinite 0s;
-        }
-        .rightline2{
-            background:url(images/marquee_vertical.svg) repeat-y  7px 0;
-            background-size: 3vw;
-            width:3vw;
-            position: fixed;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            animation: low-code-move2 15s linear infinite 0s;
-            display: flex;
-            flex-direction: column;
-            
-        }
-
-
-        @keyframes low-code-move{
-                from{transform: translateY(0%)}
-                to{transform: translateY(100%)}}
-
-        @keyframes low-code-move2{
-                from{transform: translateY(-100%)}
-                to{transform: translateY(0%)}}
-
-    /* ------------------footer--------------------------------- */
-    footer{
-        background-color: var(--color-green2);
-        padding: 50px 0;
-        /* position: sticky; */
-        bottom: 0;
-        /* z-index: -50; */
-    }
-    .arrow {
-        text-align: end;
-        padding: 10px 15px;
-    }
-    .arrow p{
-        right: 10%;
-        top: -5%;
-        padding: 0;
-        color: var(--color-white);
-
-    }
-    
-    input{
-        border: #FAF9DB solid 2px;
-        border-radius: 30px ;
-        font-size: 1rem;
-        color: #045E9E;
-        background-color: transparent;
-        padding: 0 0 5px 13px;
-        width: 100%;
-    
-    }
-    input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: var(--color-blue4);
-        font-size: 0.5rem;
-        opacity: 0.5; 
-    } 
-    button{
-        border: #FAF9DB solid 2px;
-        border-radius: 30px;
-        background-color: #FAF9DB;
-        padding: 5px 20px;
-        font-size: 0.5rem;
-        color: #045E9E;
-        right: 0;
-        
-        
-    }  
-
     </style>
+        
+
+   
 </head>
 <body>
-    
+    <div class="papa position-relative">
+        <nav >
+            <a  class="d-lg-none" href="">
+                <img class="w-25" src="images/logo.svg" alt="">
+            </a>
+            <i id="menu_bar" class="fa-solid fa-bars d-lg-none"></i>
+            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">TOP</a>
+            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">COMPETITION</a>
+            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">EQUIPMENT</a>
+            <a class="text-decoration-none ms-2 d-none d-lg-inline" href="">GYM</a>
+        </nav>
         <div class="vk upper">
             <div class="start_rope">
                 <img src="images/rope_start.svg" alt="">
@@ -602,7 +44,9 @@
         </div>
         <div class="real_vk">
         </div>
-        <div class="carabiner ">
+        <div class="carabiner_outside">
+            <div class="carabiner ">
+            </div>
         </div>
         <div class=" rope_box ">
             <div class="rope_self">
@@ -613,12 +57,7 @@
             </div>
         </div>
         <!-- -------------------nav-------------------------------------- -->
-        <nav >
-            <a class="text-decoration-none ms-2 " href="">TOP</a>
-            <a class="text-decoration-none ms-2 " href="">COMPETITION</a>
-            <a class="text-decoration-none ms-2 " href="">EQUIPMENT</a>
-            <a class="text-decoration-none ms-2 " href="">GYM</a>
-        </nav>
+       
         <!-- -----------------------sec1 competition-------------------------------- -->
         <div class="container competition mb-200px">
             <div class="row title mb-3">
@@ -701,7 +140,7 @@
             </div>
         </div>
     <!-- ------------------------------sec3 gym------------------------------------ -->
-        <div class="container sec_gym mb-200px">
+        <div class="container sec_gym pb-5">
             <div class="row title mb-3">
                 <div class="col-6 col-lg-4">
                     <img  src="images/title_gym_p.svg" alt="">
@@ -765,32 +204,39 @@
             <div class="rightline"></div>
             <div class="rightline2"></div>
         </section>
+    
+    </div>   
     <!-- ----------------------footer---------------------------- -->
-        <footer >
-            <div class="container">
-                <div class="row">
-                    <img class="w-50" src="images/logo.svg" alt="">
+    <footer  >
+        <div class="container">
+            <div class="row">
+                <img class="w-50 w-lg-25" src="images/logo.svg" alt="">
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-4 my-info">
+                    <p class="ff-16bit fs-7 m-1">Made By Peng,Shao-Tzu</p>
+                    <p class="ff-16bit fs-7 m-1">A Website About Climbing  </p>
+                    <p class="ff-16bit fs-7 m-1"> lolialice1217@gmail.com</p>
+                    <div class="social">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-lg-4">
-                        <p>Made By Peng,Shao-Tzu</p>
-                        <p>A Website About Climbing  </p>
+                <div class="col-12 col-lg-8">
+                    <div class="arrow position-relative">
+                        <p class="position-absolute fs-7 ff-16bit">Contant Us</p>
+                        <img class="w-50" src="images/icon_arrow_white.svg" alt="">
                     </div>
-                    <div class="col-12 col-lg-8">
-                        <div class="arrow position-relative">
-                            <p class="position-absolute ff-16bit">Contant Us</p>
-                            <img class="w-50" src="images/icon_arrow_white.svg" alt="">
-                        </div>
-                        <div class="email d-flex position-relative">
-                            <input class="ff-16bit" type="text" placeholder="your e-mail" >
-                            <button class="ff-16bit position-absolute">Surbscr Now!</button>
-                        </div>
-                        
+                    <div class="email d-flex position-relative">
+                        <input class="ff-16bit" type="text" placeholder="your e-mail" >
+                        <button class="ff-16bit position-absolute">Surbscr Now!</button>
                     </div>
+                    
                 </div>
             </div>
-        </footer>
-        
+        </div>
+    </footer> 
 
 
 
@@ -831,19 +277,33 @@
 
             // 動態抓圖片的寬度並且除以2, 讓滑鼠在繩子頂端
             pageX = pageX - ($('.start_rope').width()/2)
-        
+            pageY = pageY -80
             $('.start_rope').css('transform', `scaleY(1.1) translate(${pageX}px,${pageY}px)`)
         
         })
-
         // 主視覺點擊後掛繩
-        
+                
         $('.carabiner_check').click(function(){
             $('.upper').css('display', 'none')
-            $('.papa').css('overflow', 'auto')
             $('body').css('overflow', 'auto')
             $('.rope_box').css('opacity','1')
+            $('.papa').css('z-index','-50')
         })
+
+
+
+        console.log($(window).width())
+        if ($(window).width()<=992){
+            console.log(1111111111111)
+            $('#menu_bar').click(function(){
+                console.log(2222222222222222)
+                $('nav').css('width','100%').css('height','100%').css('background','pink')
+
+            })
+            
+        }
+
+        
         // ---------------------vk-----------------------------------------------
 
     </script>

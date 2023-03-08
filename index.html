@@ -447,11 +447,16 @@
         })  
         // ---------------------------sticker game-----------------------------
         // ---------開啟遊戲
+        
         $('.game_btn').click(function(){
-            console.log(11111111111111)
+            
             $('#sticker_game_area').removeClass('sticker_game_prepare').addClass('sticker_game')
             $('.game_btn').hide()
             $('.mission_card').show()
+            $('#sticker_helmet').css({'width': '18%','top':'27%','left': '25%','transform': 'rotate(-50deg)'})
+            $('#sticker_harness').css({'width': '30%','top': '27%','left':'50%',})
+            $('#sticker_chalkbag').css({'width': '10%','top': '60%','left': '20%',})
+            $('#sticker_shoes').css({'width': '35%','top': '63%','left': '50%',})
         })
         // -----------關閉任務卡
         $('.mission_card').click(function(){
@@ -459,7 +464,10 @@
 
             // ----------------黏貼貼紙
             $(function(){
-                    console.log('drag')
+                let helmet_complete = false
+                let harness_complete = false
+                let chalkbag_complete = false
+                let shoes_complete = false
                     $( "#sticker_helmet").draggable({ revert: "invalid" });
                     $( "#sticker_harness").draggable({ revert: "invalid" });
                     $( "#sticker_chalkbag").draggable({ revert: "invalid" });
@@ -481,6 +489,8 @@
                         .addClass( "ui-state-highlight" )
                         .attr( "space" ,"full");
                         $( "#sticker_helmet" ).draggable( "destroy" );
+                        helmet_complete =true;
+                        all_complete_show()
                     }
                     });
 
@@ -493,6 +503,8 @@
                         .addClass( "ui-state-highlight" )
                         .attr( "space" ,"full");
                         $( "#sticker_harness" ).draggable( "destroy" );
+                        harness_complete = true;
+                        all_complete_show()
                     }
                     });
 
@@ -505,6 +517,8 @@
                         .addClass( "ui-state-highlight" )
                         .attr( "space" ,"full");
                         $( "#sticker_chalkbag" ).draggable( "destroy" );
+                        chalkbag_complete = true ;
+                        all_complete_show()
                     }
                     });
 
@@ -517,10 +531,36 @@
                         .addClass( "ui-state-highlight" )
                         .attr( "space" ,"full");
                         $( "#sticker_shoes" ).draggable( "destroy" );
+                        shoes_complete = true;
+                        all_complete_show()
                     }
+
+
                     });
 
-                console.log('00000000000')
+                function all_complete_show(){
+                    if(helmet_complete & harness_complete & chalkbag_complete & shoes_complete ){
+                        $('.mission_card').attr('src','images/mission_clear.svg')
+                        $('.mission_card').show();
+                        setTimeout(
+                            function(){
+                                $('.mission_card').hide()
+                                $('.mission_card').attr('src','images/mission.svg')
+                            }
+                            ,1000
+                        )
+                        setTimeout(function(){
+                            $('.game_btn').show()
+                                      .css('top','20%')
+                                      .css('left','70%')
+                                    //   .css('animation',' turnrun2 5s linear infinite')
+                            $('.game_btn span').text('Restart')
+                                        // .css('animation',' turnback 5s linear infinite')
+                        },1000
+                        )
+                    }
+                    }
+                        
                 
                 
 
@@ -530,12 +570,30 @@
 
             
         })
-        $(function(){
-            if($('#ans_shoes').attr('space')=='full'){$(function(){
-                console.log('innnnnnnnnnnn')
-            })}
-        })
         
+        // #sticker_helmet{
+        //     width: 18%;
+        //     top:27%;
+        //     left: 25%;
+        //     transform: rotate(-50deg);
+        // }
+        // #sticker_harness{
+        //     width: 30%;
+        //     top: 27%;
+        //     left:50%;
+        // }
+
+        // #sticker_chalkbag{
+        //     width: 10%;
+        //     top: 60%;
+        //     left: 20%;
+        // }
+        // #sticker_shoes{
+        //     width: 35%;
+        //     top: 63%;
+        //     left: 50%;
+            
+        // }
            
 
         

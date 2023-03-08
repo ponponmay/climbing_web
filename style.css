@@ -474,7 +474,6 @@
     .game_btn:hover span{
         display: block;
         animation: turnback 5s linear infinite;
-       
     }
     @keyframes turnrun2 {
         0% {
@@ -493,8 +492,8 @@
         left: 50%;
         transform: translate(-50%,-50%);
         display: none;
-
         transition: .3s;
+        z-index: 20;
     }
     .sticker{
         z-index: 10;
@@ -516,7 +515,7 @@
     }
     #ans_chalkbag{
         top: 55%;
-        left: 30%;
+        left: 35%;
     }
     #ans_shoes{
         top: 80%;

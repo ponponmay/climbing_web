@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         .mobile_menu{
             height: 30%;
@@ -61,8 +62,8 @@
 <body>
     <div class="papa position-relative">
         <nav >
-            <a id="top_logo" class="d-lg-none" href="">
-                <img class="w-25" src="images/logo.svg" alt="">
+            <a id="top_logo" class="d-lg-none w-25" href="">
+                <img  src="images/logo.svg" alt="">
             </a>
             <div class="menu_btn" id="menu_bar">
                 <i class="fa-solid fa-bars d-lg-none"></i>
@@ -199,36 +200,42 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-3 d-flex flex-lg-column justify-content-around ps-lg-5">
-                    <div class="location_btn " local="north">
-                        <img class="w-75 w-lg-50" src="images/gym_north_b.svg" alt="">
+                    <div class="location_btn location_btn_bg animate__animated" local="north">
+                        <img class="btn-local w-75  w-lg-60" src="images/gym_north_b.svg" alt="">
+                        <img class="btn_tag animate__animated" src="images/tag.svg" alt="">
                     </div>
                     <div class="location_btn " local="middle">
-                        <img class="w-75 w-lg-50" src="images/gym_middle_b.svg" alt="">
+                        <img class="btn-local w-75 w-lg-60" src="images/gym_middle_b.svg" alt="">
+                        <img class="btn_tag animate__animated" src="images/tag.svg" alt="">
                     </div>
-                    <div class="location_btn " local="south">
-                        <img class="w-75 w-lg-50" src="images/gym_south_b.svg" alt="">
+                    <div class="location_btn  animate__animated" local="south">
+                        <img class="btn-local w-75  w-lg-60" src="images/gym_south_b.svg" alt="">
+                        <img class="btn_tag animate__animated" src="images/tag.svg" alt="">
                     </div>
-                    <div class="location_btn " local="east">
-                        <img class="w-75 w-lg-50" src="images/gym_east_b.svg" alt="">
+                    <div class="location_btn  animate__animated" local="east">
+                        <img class="btn-local w-75  w-lg-60" src="images/gym_east_b.svg" alt="">
+                        <img class="btn_tag animate__animated" src="images/tag.svg" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-lg-9 mt-5">
                     <div class="gym_card  mx-4 mt-3">
-                        <div class="gym_photo">
-                            <img class="w-100 h-100" src="images/gym_photo_mega.jpg" alt="">
-                        </div>
-                        <div class="gym_info mb-3">
-                            <h4>MegaSTONE Climbing Gym</h4>
-                            <p>新北市新莊區中正路56巷5號</p>
-                            <p>02-8992-8991</p>
-                            <p>平日14:00~22:00 <br>假日11:00~19:00</p>
-                            <div class="icon">
-                                <a class="text-decoration-none color_darkblue" href="">
-                                     <i class="fa-brands fa-facebook"></i>
-                                </a>
-                               <a class="text-decoration-none color_darkblue" href="">
-                                    <i class="fa-solid fa-location-dot"></i>
-                               </a>
+                        <div class="gym_current_info">
+                            <div class="gym_photo">
+                                <img class="w-100 h-100" src="images/gym_photo_mega.jpg" alt="">
+                            </div>
+                            <div class="gym_info mb-3">
+                                <h4 class="gym_name">MegaSTONE Climbing Gym</h4>
+                                <p class="gym_addresess">新北市新莊區中正路56巷5號</p>
+                                <p class="gym_phone">02-8992-8991</p>
+                                <p class="gym_time">平日14:00~22:00 <br>假日11:00~19:00</p>
+                                <div class="icon">
+                                    <a class="text-decoration-none color_darkblue" href="https://www.facebook.com/MegaSTONE20190601/">
+                                         <i class="fa-brands fa-facebook"></i>
+                                    </a>
+                                   <a class="text-decoration-none color_darkblue" href="https://goo.gl/maps/P7hatbqo3ahqdzJv6">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                   </a>
+                                </div>
                             </div>
                         </div>
                         <div class="page_dot_box">
@@ -367,10 +374,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script>
         // 畫面重整回到最上方
-        // $('html,body').animate({
-        //     scrollTop:0,
-        //     screenLeft:0,
-        // },0)
+        $('html,body').animate({
+            scrollTop:0,
+            screenLeft:0,
+        },0)
 
         
     
@@ -424,6 +431,7 @@
                 $('.fa-bars').css('display','none')
                 $('.fa-xmark').css('display','inline')
                 $('.menu_a').css('display','inline')
+                $('.menu_a_group').show()
                 menu = false
                 }else{
                     menu = true
@@ -434,6 +442,7 @@
                     $('.fa-bars').css('display','inline')
                     $('.fa-xmark').css('display','none')  
                     $('.menu_a ').css('display','none')
+                    $('.menu_a_group').hide()
                 }   
             })
         }
@@ -463,7 +472,7 @@
             $('#sticker_chalkbag').css({'width': '10%','top': '60%','left': '20%',})
             $('#sticker_shoes').css({'width': '35%','top': '63%','left': '50%',})
         })
-        // -----------關閉任務卡
+        // -----------關閉任務卡----------
         $('.mission_card').click(function(){
             $('.mission_card').hide()
 
@@ -569,11 +578,12 @@
             }); 
         })
         // -------------------------gym slider-----------------
+
         let northGymArray = [
             {name :  'MegaSTONE Climbing Gym ',
             addresses : ' 新北市新莊區中正路56巷5號',
             phone: '02-8992-8991 ',
-            time: ' 平日 14:30-22:30週末 10:00-20:00',
+            time: ' 平日 14:30-22:30 <br>週末 10:00-20:00',
             img : 'images/gym_info/megastone.jpg ',
             web : 'https://www.facebook.com/MegaSTONE20190601/ ',
             map : 'https://goo.gl/maps/P7hatbqo3ahqdzJv6'
@@ -582,38 +592,129 @@
             {name :  'double8 岩究所 ',
             addresses : ' 台北市大同區迪化街一段251號',
             phone : '02-2550-8081 ',
-            time: ' 週一至週五 13:30-22:00週六日 09:30-18:30',
+            time: ' 平日 13:30-22:00 <br>周末 09:30-18:30',
             img : 'images/gym_info/double8.jpg ',
             web : 'https://www.facebook.com/double8tw ',
             map :'https://goo.gl/maps/rttj6c2wPjXrNppq6'
             },
         
-            {name :  'CORNER Bouldering Gym 角攀岩館 ',
+            {name :  'CORNER Bouldering Gym',
             addresses : '台北市中山區新生北路一段86號 ',
             phone : '02-2563-3749 ',
-            time: ' 平日 10:00-23:00週末 09:00-21:00',
-            img : 'CORNER-Bouldering-Gym.jpg ',
+            time: ' 平日 10:00-23:00 <br>週末 09:00-21:00',
+            img : 'images/gym_info/CORNER-Bouldering-Gym.jpg ',
             web : ' https://www.facebook.com/corner.bouldering/',
             map :'https://goo.gl/maps/GeMjsPhTuYCNFZkAA'
             },
         
             {name :  '原岩攀岩館-萬華店',
             addresses : '台北市萬華區大理街149號 ',
-            phone : '02 2308 8250 ',
-            time: '平日 10:00-23:00週末 09:00-21:00 ',
-            img : 't-up.webp ',
+            phone : '02-2308-8250 ',
+            time: '平日 10:00-23:00 <br>週末 09:00-21:00 ',
+            img : 'images/gym_info/t-up.jpg ',
             web : ' https://www.facebook.com/TupClimbingWanhua/',
             map :'https://goo.gl/maps/pNDkVpLPVcvqFvUZ6'
             },
         
             {name :  '市民抱石攀岩館 ',
             addresses : '台北市南港區市民大道八段552號 ',
-            phone : '02 2788 0615 ',
-            time: ' 10:00-22:00',
-            img : 'taipei_citizn.jpg ',
+            phone : '02-2788-0615 ',
+            time: '營業時間 10:00-22:00',
+            img : 'images/gym_info/taipei_citizn.jpg ',
             web : ' https://www.facebook.com/CivicBouldergymTaipei/?locale=zh_TW',
             map :'https://goo.gl/maps/ADPhYHzghGXfBtXu8'
             }      
+        ]
+        let middleGymArray = [
+            {name :  ' 破舊二場',
+            addresses : ' 台中市烏日區健行路131號',
+            phone : '0968-298876 ',
+            time: '平日 17:30-22:30<br>週末 14:00-22:00 ',
+            img : ' images/gym_info/old2.jpg',
+            web : 'https://www.facebook.com/ShabbyfactoryII/ '
+            },
+
+            {name :  'The Depot City ',
+            addresses : '台中市北屯區敦平二街17號 ',
+            phone : '04-2299-4803 ',
+            time: ' 平日 18:00-23:00<br>週末 13:00-20:00',
+            img : ' images/gym_info/depocity.jpg',
+            web : ' https://www.facebook.com/thedepotcity/'
+            },
+
+            {name :  ' B-plus 攀岩館',
+            addresses : '台中市西屯區環中路二段982-1號 ',
+            phone : ' 0933-324-381',
+            time: ' 平日 18:00-23:00 <br>週末 13:00-21:00 (週一公休)',
+            img : ' images/gym_info/B-plus-3.jpg',
+            web : ' https://www.facebook.com/bplusbouldering/'
+            },
+
+            {name :  ' Dapro室內攀岩場',
+            addresses : '台中市南屯區永春東七路700號 ',
+            phone : '04-2380-7490 ',
+            time: ' 平日 13:00-23:00<br>週末 10:00-20:00',
+            img : ' images/gym_info/Dapro.jpg',
+            web : 'https://www.facebook.com/daproindoorclimbing/ '
+            },
+
+            {name :  '攀吶攀岩館',
+            addresses : ' 台中市東區進化路90-1號',
+            phone : '04-2380-7490 ',
+            time: '平日 18:00-23:00<br>週末 11:00-23:00 ',
+            img: ' images/gym_info/panna-3.jpg',
+            web : ' https://www.facebook.com/vbclimbing/'
+            }
+        ]
+        let southGymArray =[
+            {name :  '嗨翻綜合體能館 ',
+            addresses : ' 台南市北區大和路121號',
+            phone : '06-358-4339 ',
+            time: ' 平日 14:00-22:00<br>週末 10:00-18:00 (週一公休)',
+            img : ' images/gym_info/hightfun55.jpg',
+            web : 'https://www.facebook.com/highfun55/?locale=zh_TW '
+            },
+
+            {name :  'Boulder Space圓石空間攀岩場 ',
+            addresses : ' 高雄市三民區昌裕街94巷11號',
+            phone : ' 0978-667-951 ',
+            time: ' 平日 14:00-23:00<br>週末 10:00-19:00',
+            img : ' images/gym_info/BoulderSpace.jpg',
+            web : ' https://www.facebook.com/Boulderspace/'
+            },
+
+            {name :  '抱石基地 ',
+            addresses : ' 高雄市左營區重信路24巷11號',
+            phone : '0910-439-361 ',
+            time: ' 平日 14:00-22:30<br>週末 10:00-19:30',
+            img : ' images/gym_info/base-camp.jpg',
+            web : ' https://www.facebook.com/BaseCampKHH/'
+            }
+        ]
+        let eastGymArray =[
+            {name:  '小窩共享活動空間 ',
+            addresses : ' 花蓮縣吉安鄉民治路242號後巷',
+            phone: ' 0912-134-482',
+            time: ' 營業時間 17:30-23:00',
+            img : ' images/gym_info/little-nest.jpg',
+            web : 'https://www.facebook.com/profile.php?id=100086387397047 '
+            },
+
+            {name :  '久淘 攀岩抱石館 ',
+            addresses : '宜蘭縣宜蘭市復興路一段102號 ',
+            phone : ' 0908-977-650 ',
+            time: '營業時間 13:00-22:00 ',
+            img : ' images/gym_info/jotao.jpg',
+            web : 'https://www.facebook.com/jioutaubouldering/ '
+            },
+
+            {name :  ' Rockdance舞岩抱石攀岩館',
+            addresses : ' 宜蘭縣冬山鄉冬山路二段534號',
+            phone : ' 03-958-8334 ',
+            time: '營業時間 13:00-22:00',
+            img: ' images/gym_info/rockdance.jpg',
+            web : 'https://www.facebook.com/profile.php?id=100083033755917 '
+            }
         ]
         
 
@@ -630,64 +731,126 @@
             }
         }    
 
-        let current_array =null
-        
+        let current_array =northGymArray
+        function tagin(e){
+            console.log(22222222222)
+            console.log(e)
+            console.log(3333333333333)
+            if($(window).width()<=992){
+                console.log(e)
+                console.log(4444444444)
+                $(e.target).find('.btn_tag').removeClass('animate__fadeInUp')
+                $(e.target).find('.btn_tag').css('display','block').addClass('animate__fadeInUp')
+                $(e.target).siblings().find($('.btn_tag')).css('display','none')
+            }else{
+                console.log(e)
+                console.log(4444444444)
+                $(e.target).find('.btn_tag').removeClass('animate__fadeInLeft')
+                $(e.target).find('.btn_tag').css('display','block').addClass('animate__fadeInLeft')
+                $(e.target).siblings().find($('.btn_tag')).css('display','none')
+            }
+        }
+
         $('.location_btn').click(function(e){
-             
+            console.log(11111111111)
+            tagin(e)
+            
+            // $(e.target).find('.btn_tag').removeClass('animate__fadeInLeft')
+            // $(e.target).find('.btn_tag').css('display','block').addClass('animate__fadeInLeft')
+            // $(e.target).siblings().find($('.btn_tag')).css('display','none')
 
-            console.log('local', $(e.target).attr('local'))
+            
+            let local = $(e.target).attr('local')
 
-            if($(e.target).attr('local')== 'north'){
+            if (local == 'north'){
+                current_array= northGymArray
 
-                $(function(){
-                    current_array= northGymArray
-                    console.log('current_array.length', current_array.length)
-                    
-                    let i = 0
-                    let current_img = current_array[i].img
-                    let current_name = current_array[i].name
-                    let current_addresses = current_array[i].addresses
-                    let current_phone = current_array[i].phone
-                    let current_time = current_array[i].time
-                    let current_web = current_array[i].web
-                    let current_map = current_array[i].map
-                   
-                    let cardHtml = `<div class="gym_photo">
-                            <img class="w-100 h-100" src="${current_img}" alt="">
-                        </div>
-                        <div class="gym_info mb-3">
-                            <h4>${current_name}</h4>
-                            <p>${current_addresses}</p>
-                            <p>${current_phone}</p>
-                            <p>${current_time}</p>
-                            <div class="icon">
-                            <a class="text-decoration-none color_darkblue" href="${current_web}">
-                                <i class="fa-brands fa-facebook"></i>
-                            </a>
-                            <a class="text-decoration-none color_darkblue" href="${current_map}">
-                                <i class="fa-solid fa-location-dot"></i>
-                             </a>
-                            </div>
-                        </div>
-                        <div class="page_dot_box">
-                            <div class="page_dot"></div>
-                            <div class="page_dot"></div>
-                            <div class="page_dot"></div>
-                            <div class="page_dot"></div>
-                            <div class="page_dot"></div>
-                        </div>`
+            }else if(local == 'middle'){
+                current_array= middleGymArray
 
-                    $('.gym_card').empty().append(cardHtml)
-                    append_dot()
-                    console.log('array',current_array )
-                    console.log(cardHtml)
-                  
+            }else if(local == 'south'){
+                current_array= southGymArray
 
-                })
+            }else{
+                current_array= eastGymArray
             }
             
-        })                
+            $(function(){
+                console.log('current_array.length', current_array.length)
+                
+                let i = 0
+                let current_img = current_array[i].img
+                let current_name = current_array[i].name
+                let current_addresses = current_array[i].addresses
+                let current_phone = current_array[i].phone
+                let current_time = current_array[i].time
+                let current_web = current_array[i].web
+                let current_map = current_array[i].map
+                
+                let cardHtml = `<div class="gym_photo">
+                        <img class="w-100 h-100" src="${current_img}" alt="">
+                    </div>
+                    <div class="gym_info mb-3">
+                        <h4 class="gym_name" >${current_name}</h4>
+                        <p class="gym_addresses" >${current_addresses}</p>
+                        <p class="gym_phone">${current_phone}</p>
+                        <p class="gym_time">${current_time}</p>
+                        <div class="icon">
+                        <a class="text-decoration-none color_darkblue" href="${current_web}">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-decoration-none color_darkblue" href="${current_map}">
+                            <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                        </div>
+                    </div>
+                    `
 
+                $('.gym_current_info').empty().append(cardHtml)
+                append_dot() 
+            })  
+        })
+        // $('.page_dot_box').on("click",function(e){
+        //     console.log($(e.target).index())
+        //     $(e.target).index()
+        // })                
+        $('.page_dot_box').on("click",$('.page_dot'),function(e){
+
+            console.log($(e.target).index())
+            let current_index = $(e.target).index()
+            $('.page_dot').eq(current_index).css('background-color','var(--color-pink4)').siblings().css('background-color','var(--color-pink2)')
+
+            i = current_index
+            current_img = current_array[i].img
+            current_name = current_array[i].name
+            current_addresses = current_array[i].addresses
+            current_phone = current_array[i].phone
+            current_time = current_array[i].time
+            current_web = current_array[i].web
+            current_map = current_array[i].map
+                
+            cardHtml = `<div class="gym_photo">
+                        <img class="w-100 h-100" src="${current_img}" alt="">
+                    </div>
+                    <div class="gym_info mb-3">
+                        <h4 class="gym_name">${current_name}</h4>
+                        <p class="gym_addresses">${current_addresses}</p>
+                        <p class="gym_phone">${current_phone}</p>
+                        <p class="gym_time">${current_time}</p>
+                        <div class="icon">
+                        <a class="text-decoration-none color_darkblue" href="${current_web}">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-decoration-none color_darkblue" href="${current_map}">
+                            <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                        </div>
+                    </div>
+                    `
+
+                $('.gym_current_info').empty().append(cardHtml)
+            
+        })
         
     
 

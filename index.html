@@ -32,11 +32,15 @@
         }
       
         .back_btn{
-            background-color: var(--color-white);
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
             width: 50%;
-            padding: 3% 5%;
+            padding: 1% 2%;
             border-radius: 30px;
             margin: auto;
+        }
+        .modal-dialog{
+            max-width: 600px;
         }
         .modal-content{
             background-color: transparent;
@@ -172,11 +176,16 @@
                         <img src="images/sticker_shoes.svg" alt="">
                     </div>
                 </div>
-                <div class="d-none d-lg-block col-lg-6 sticker_game">
-                    <div id="ans_helmet" class="sticker_ans d-none d-lg-block"></div>
-                    <div id="ans_harness" class="sticker_ans d-none d-lg-block"></div>
-                    <div id="ans_chalkbag" class="sticker_ans d-none d-lg-block"></div>
-                    <div id="ans_shoes" class="sticker_ans d-none d-lg-block"></div>
+
+                <div id="sticker_game_area" class="d-none d-lg-block col-lg-6  sticker_game_prepare">
+                    <button class="game_btn  color_darkblue">
+                        <span >Start <br> Game </span> 
+                    </button>
+                    <img class="mission_card w-50 position-absolute" src="images/mission.svg" alt="">
+                    <div id="ans_helmet" class="sticker_ans d-none d-lg-block" space="null"></div>
+                    <div id="ans_harness" class="sticker_ans d-none d-lg-block" space="null"></div>
+                    <div id="ans_chalkbag" class="sticker_ans d-none d-lg-block" space="null"></div>
+                    <div id="ans_shoes" class="sticker_ans d-none d-lg-block" space="null"></div>
                 </div>
 
             </div>
@@ -272,7 +281,7 @@
                     </div>
                     <div class="email d-flex position-relative">
                         <input class="ff-16bit" type="text" placeholder="your e-mail" >
-                        <button class="ff-16bit position-absolute">Surbscr Now!</button>
+                        <button class="footer_btn ff-16bit position-absolute">Surbscr Now!</button>
                     </div>
                     
                 </div>
@@ -285,17 +294,17 @@
     <div class="modal fade" id="exampleModalspeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body ">
-                <div class="climbing_text  text-center my-5 ">
-                    <img class="h-75  window_shadow" src="images/text_speed.svg" alt="">
+            <div class="modal-body d-lg-flex">
+                <div class="climbing_text  text-center my-5 w-lg-50 pe-lg-2">
+                    <img class="  window_shadow" src="images/text_speed.svg" alt="">
                 </div>
-                <div class="climbing_photo  text-center mb-5">
-                    <img class="h-75  window_shadow" src="images/window_speed.svg" alt="">
+                <div class="climbing_photo  text-center mb-5 w-lg-50 ps-lg-2">
+                    <img class="  window_shadow" src="images/window_speed.svg" alt="">
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
-                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                <div class="back_btn text-center mb-5 window_shadow w-25" data-bs-dismiss="modal">
+                    <img id="back_arrow" class=" w-100" src="images/back_arrow_white.svg" alt="">
                 </div>
             </div>
             
@@ -306,17 +315,20 @@
     <div class="modal fade" id="exampleModallead" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="climbing_text   text-center my-5">
-                    <img class="h-75  window_shadow" src="images/text_lead.svg" alt="">
+            <div class="modal-body d-lg-flex">
+                <div class="climbing_text  text-center my-5 w-lg-50 pe-lg-2">
+                    <img class="  window_shadow" src="images/text_lead.svg" alt="">
                 </div>
-                <div class="climbing_photo  text-center mb-5">
-                    <img class="h-75 window_shadow" src="images/window_lead.svg" alt="">
-                </div>
-                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
-                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                <div class="climbing_photo  text-center mb-5 w-lg-50 ps-lg-2">
+                    <img class="  window_shadow" src="images/window_lead.svg" alt="">
                 </div>
             </div>
+            <div class="modal-footer">
+                <div class="back_btn text-center mb-5 window_shadow w-25" data-bs-dismiss="modal">
+                    <img id="back_arrow" class=" w-100" src="images/back_arrow_white.svg" alt="">
+                </div>
+            </div>
+            
         </div>
         </div>
     </div>
@@ -324,26 +336,30 @@
     <div class="modal fade" id="exampleModalbouldering" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="climbing_text   text-center my-5">
-                    <img class="h-75 window_shadow" src="images/text_bouldering.svg" alt="">
+            <div class="modal-body d-lg-flex">
+                <div class="climbing_text  text-center my-5 w-lg-50 pe-lg-2">
+                    <img class="  window_shadow" src="images/text_bouldering.svg" alt="">
                 </div>
-                <div class="climbing_photo  text-center mb-5">
-                    <img class="h-75 window_shadow" src="images/window_bouldering.svg" alt="">
-                </div>
-                <div class="back_btn text-center mb-5 window_shadow" data-bs-dismiss="modal">
-                    <img id="back_arrow" class="w-100 " src="images/back_arrow.svg" alt="">
+                <div class="climbing_photo  text-center my-5 w-lg-50 ps-lg-2">
+                    <img class="  window_shadow" src="images/window_bouldering.svg" alt="">
                 </div>
             </div>
+            <div class="modal-footer">
+                <div class="back_btn text-center mb-5 window_shadow w-25" data-bs-dismiss="modal">
+                    <img id="back_arrow" class=" w-100" src="images/back_arrow_white.svg" alt="">
+                </div>
+            </div>
+            
         </div>
         </div>
     </div>
 
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="./js/jquery-3.6.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script>
         // 畫面重整回到最上方
         // $('html,body').animate({
@@ -429,7 +445,100 @@
             $('.menu_a ').css('display','none')
             }
         })  
+        // ---------------------------sticker game-----------------------------
+        // ---------開啟遊戲
+        $('.game_btn').click(function(){
+            console.log(11111111111111)
+            $('#sticker_game_area').removeClass('sticker_game_prepare').addClass('sticker_game')
+            $('.game_btn').hide()
+            $('.mission_card').show()
+        })
+        // -----------關閉任務卡
+        $('.mission_card').click(function(){
+            $('.mission_card').hide()
 
+            // ----------------黏貼貼紙
+            $(function(){
+                    console.log('drag')
+                    $( "#sticker_helmet").draggable({ revert: "invalid" });
+                    $( "#sticker_harness").draggable({ revert: "invalid" });
+                    $( "#sticker_chalkbag").draggable({ revert: "invalid" });
+                    $( "#sticker_shoes").draggable({ revert: "invalid" });
+
+
+                    // invalid 會彈回原處
+                
+                    $( "#ans_helmet" ).droppable({
+                    accept: "#sticker_helmet",
+                    // 辨識可作用者
+
+                    // activeClass: "ui-state-default",
+                    // hoverClass: "ui-state-hover",
+                    // classname 是預先寫好的style
+
+                    drop: function( event, ui ) {
+                        $( this )
+                        .addClass( "ui-state-highlight" )
+                        .attr( "space" ,"full");
+                        $( "#sticker_helmet" ).draggable( "destroy" );
+                    }
+                    });
+
+                    $( "#ans_harness" ).droppable({
+                    accept: "#sticker_harness",
+                    activeClass: "ui-state-default",
+                    hoverClass: "ui-state-hover",
+                    drop: function( event, ui ) {
+                        $( this )
+                        .addClass( "ui-state-highlight" )
+                        .attr( "space" ,"full");
+                        $( "#sticker_harness" ).draggable( "destroy" );
+                    }
+                    });
+
+                    $( "#ans_chalkbag" ).droppable({
+                    accept: "#sticker_chalkbag",
+                    activeClass: "ui-state-default",
+                    hoverClass: "ui-state-hover",
+                    drop: function( event, ui ) {
+                        $( this )
+                        .addClass( "ui-state-highlight" )
+                        .attr( "space" ,"full");
+                        $( "#sticker_chalkbag" ).draggable( "destroy" );
+                    }
+                    });
+
+                    $( "#ans_shoes" ).droppable({
+                    accept: "#sticker_shoes",
+                    activeClass: "ui-state-default",
+                    hoverClass: "ui-state-hover",
+                    drop: function( event, ui ) {
+                        $( this )
+                        .addClass( "ui-state-highlight" )
+                        .attr( "space" ,"full");
+                        $( "#sticker_shoes" ).draggable( "destroy" );
+                    }
+                    });
+
+                console.log('00000000000')
+                
+                
+
+
+
+            });
+
+            
+        })
+        $(function(){
+            if($('#ans_shoes').attr('space')=='full'){$(function(){
+                console.log('innnnnnnnnnnn')
+            })}
+        })
+        
+           
+
+        
     
 
     </script>

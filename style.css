@@ -196,11 +196,13 @@
             /* height: 200px; */
             width: 20%;
             position: absolute;
+            z-index: 10;
         }
         #sticker_helmet{
             width: 18%;
             top:27%;
             left: 25%;
+            transform: rotate(-50deg);
         }
         #sticker_harness{
             width: 30%;
@@ -436,18 +438,72 @@
     
 
     /* -------------------------sec2 equipment------------------------------------- */
-    
+    .sticker_game_prepare{
+        background: url(images/sticker_game_mask.svg),url(images/sticker_game.svg)  ;
+        background-size: contain ,contain;
+        background-repeat: no-repeat ,no-repeat;
+        background-position: center center ,center center;
+        position: relative;
+        transition: .3s;
+    }
     .sticker_game{
         background-image: url(images/sticker_game.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center ;
         position: relative;
+        transition: .3s;
     }
+    .game_btn{
+        position: absolute;
+        width: 20%;
+        aspect-ratio: 1/1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 50%;
+        background-color: transparent;
+        border:#045E9E 2px dashed;
+        transition: .5s;
+    }
+    .game_btn:hover {
+        animation: turnrun2 5s linear infinite;
+        background-color: var(--color-white);
+        box-shadow: 5px 5px 5px #ccc;
+    }
+    .game_btn:hover span{
+        display: block;
+        animation: turnback 5s linear infinite;
+       
+    }
+    @keyframes turnrun2 {
+        0% {
+            transform:translate(-50%, -50px) rotate(0deg);
+        }
+        50%{
+            transform:translate(-50%, -50px) rotate(180deg);
+        }
+        100%{
+            transform:translate(-50%, -50px) rotate(360deg);
+        }
+    }
+
+    .mission_card{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+
+        transition: .3s;
+    }
+    .sticker{
+        z-index: 10;
+    }
+
     .sticker_ans{
         width: 50px;
         height: 50px;
-        background-color: #045E9E;
+        /* background-color: #045E9E; */
         position: absolute;
     }
     #ans_helmet{
@@ -631,7 +687,7 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.5rem;
     opacity: 0.5; 
 } 
-button{
+.footer_btn{
     border: #FAF9DB solid 2px;
     border-radius: 30px;
     background-color: #FAF9DB;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jqueryui/style.css">
+    <style>
+        #draggable, #draggable2 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+        #droppable, #droppable2 { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; background: #fff;}
+        .uidefault,.uihover{
+            background-color: aqua;
+        }
+    </style>
+
+    <!-- https://api.jqueryui.com/draggable/#method-destroy  draggable說明書 拖曳者-->
+    <!-- https://api.jqueryui.com/droppable/#event-drop    droppable說明書 辨識區-->
+    <!-- https://api.jqueryui.com/theming/css-framework/  預設好的classname style已經有預設樣式 -->
+    <!-- https://www.w3big.com/try/try.php?filename=jqueryui-example-droppable-revert   官方範例-->
+    <!-- https://www.w3big.com/zh-TW/jqueryui/example-droppable.html#gsc.tab=0  更多draggable範例 -->
+
+
+    <script>
+        $(function() {
+            $( "#draggable" ).draggable({ revert: "invalid" });
+            $( "#draggable2" ).draggable({ revert: "invalid" });
+            // invalid 會彈回原處
+        
+            $( "#droppable" ).droppable({
+            accept: "#draggable",
+            // 辨識可作用者
+
+            // activeClass: "ui-state-default",
+            // hoverClass: "ui-state-hover",
+            // classname 是預先寫好的style
+
+            drop: function( event, ui ) {
+                $( this )
+                .addClass( "ui-state-highlight" )
+                .find( "p" )
+                .html( "已放置！" );
+                $( "#draggable" ).draggable( "destroy" );
+            }
+            });
+
+            $( "#droppable2" ).droppable({
+            accept: "#draggable2",
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                $( this )
+                .addClass( "ui-state-highlight" )
+                .find( "p" )
+                .html( "已放置！" );
+                $( "#draggable2" ).draggable( "destroy" );
+            }
+            });
+
+        });
+  </script>
+</head>
+<body>
+    <div id="draggable" class="ui-widget-content">
+        <p>吊帶</p>
+        <img src="images/sticker_harness.svg" alt="">
+      </div>
+       
+      <div id="draggable2" class="ui-widget-content">
+        <p>岩鞋</p>
+      </div>
+       
+      <div id="droppable" class="ui-widget-header">
+        <p>腰</p>
+      </div>
+      
+      <div id="droppable2" class="ui-widget-header">
+        <p>腳</p>
+      </div>
+</body>
+</html>

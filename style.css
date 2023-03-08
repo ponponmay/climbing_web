@@ -541,6 +541,9 @@
         margin: 2px 8px;
 
     }
+    .location_btn img{
+        pointer-events: none;
+    }
     
 
     /* ----------------marquee mobile------------------- */

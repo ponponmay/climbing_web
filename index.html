@@ -199,16 +199,16 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-3 d-flex flex-lg-column justify-content-around ps-lg-5">
-                    <div class="location_btn ">
+                    <div class="location_btn " local="north">
                         <img class="w-75 w-lg-50" src="images/gym_north_b.svg" alt="">
                     </div>
-                    <div class="location_btn ">
+                    <div class="location_btn " local="middle">
                         <img class="w-75 w-lg-50" src="images/gym_middle_b.svg" alt="">
                     </div>
-                    <div class="location_btn ">
+                    <div class="location_btn " local="south">
                         <img class="w-75 w-lg-50" src="images/gym_south_b.svg" alt="">
                     </div>
-                    <div class="location_btn ">
+                    <div class="location_btn " local="east">
                         <img class="w-75 w-lg-50" src="images/gym_east_b.svg" alt="">
                     </div>
                 </div>
@@ -223,8 +223,12 @@
                             <p>02-8992-8991</p>
                             <p>平日14:00~22:00 <br>假日11:00~19:00</p>
                             <div class="icon">
-                                <i class="fa-brands fa-facebook"></i>
-                                <i class="fa-solid fa-location-dot"></i>
+                                <a class="text-decoration-none color_darkblue" href="">
+                                     <i class="fa-brands fa-facebook"></i>
+                                </a>
+                               <a class="text-decoration-none color_darkblue" href="">
+                                    <i class="fa-solid fa-location-dot"></i>
+                               </a>
                             </div>
                         </div>
                         <div class="page_dot_box">
@@ -239,6 +243,7 @@
                 </div>
             </div>
         </div>
+        
     <!-- --------------------------marquee-跑馬燈--------------------- -->
     <!-- 手機水平跑馬燈 -->
         <section class="marquee_h  d-lg-none" >     
@@ -377,12 +382,12 @@
         // .box內所有人都會觸動事件，包含滑鼠碰到紅點，都會被引發
         // 要避免滑鼠碰到紅點後會觸發，要在紅點的css加上pointer-events: none;
         $('.upper').mousemove(function(e){
-            console.log('e.offsetX', e.offsetX)
-            console.log('e.offsetY', e.offsetY)
+            // console.log('e.offsetX', e.offsetX)
+            // console.log('e.offsetY', e.offsetY)
 
             // 改成抓整個 page 的座標, 才不會被上層的 div 影響到
-            console.log('e.pageX', e.pageX)
-            console.log('e.pageY', e.pageY)
+            // console.log('e.pageX', e.pageX)
+            // console.log('e.pageY', e.pageY)
 
             // var husband = ['Jace', '曾皓', '我老公'];
             // var adjective = ['年輕的帥哥', '可愛的男孩'];
@@ -534,8 +539,6 @@
                         shoes_complete = true;
                         all_complete_show()
                     }
-
-
                     });
 
                 function all_complete_show(){
@@ -553,48 +556,137 @@
                             $('.game_btn').show()
                                       .css('top','20%')
                                       .css('left','70%')
+                                    //   .css('width','10%')
                                     //   .css('animation',' turnrun2 5s linear infinite')
                             $('.game_btn span').text('Restart')
+                                                // .css('font-size','0.5rem')
+
                                         // .css('animation',' turnback 5s linear infinite')
                         },1000
                         )
                     }
                     }
-                        
-                
-                
-
-
-
-            });
-
-            
+            }); 
         })
-        
-        // #sticker_helmet{
-        //     width: 18%;
-        //     top:27%;
-        //     left: 25%;
-        //     transform: rotate(-50deg);
-        // }
-        // #sticker_harness{
-        //     width: 30%;
-        //     top: 27%;
-        //     left:50%;
-        // }
+        // -------------------------gym slider-----------------
+        let northGymArray = [
+            {name :  'MegaSTONE Climbing Gym ',
+            addresses : ' 新北市新莊區中正路56巷5號',
+            phone: '02-8992-8991 ',
+            time: ' 平日 14:30-22:30週末 10:00-20:00',
+            img : 'images/gym_info/megastone.jpg ',
+            web : 'https://www.facebook.com/MegaSTONE20190601/ ',
+            map : 'https://goo.gl/maps/P7hatbqo3ahqdzJv6'
+            },
 
-        // #sticker_chalkbag{
-        //     width: 10%;
-        //     top: 60%;
-        //     left: 20%;
-        // }
-        // #sticker_shoes{
-        //     width: 35%;
-        //     top: 63%;
-        //     left: 50%;
+            {name :  'double8 岩究所 ',
+            addresses : ' 台北市大同區迪化街一段251號',
+            phone : '02-2550-8081 ',
+            time: ' 週一至週五 13:30-22:00週六日 09:30-18:30',
+            img : 'images/gym_info/double8.jpg ',
+            web : 'https://www.facebook.com/double8tw ',
+            map :'https://goo.gl/maps/rttj6c2wPjXrNppq6'
+            },
+        
+            {name :  'CORNER Bouldering Gym 角攀岩館 ',
+            addresses : '台北市中山區新生北路一段86號 ',
+            phone : '02-2563-3749 ',
+            time: ' 平日 10:00-23:00週末 09:00-21:00',
+            img : 'CORNER-Bouldering-Gym.jpg ',
+            web : ' https://www.facebook.com/corner.bouldering/',
+            map :'https://goo.gl/maps/GeMjsPhTuYCNFZkAA'
+            },
+        
+            {name :  '原岩攀岩館-萬華店',
+            addresses : '台北市萬華區大理街149號 ',
+            phone : '02 2308 8250 ',
+            time: '平日 10:00-23:00週末 09:00-21:00 ',
+            img : 't-up.webp ',
+            web : ' https://www.facebook.com/TupClimbingWanhua/',
+            map :'https://goo.gl/maps/pNDkVpLPVcvqFvUZ6'
+            },
+        
+            {name :  '市民抱石攀岩館 ',
+            addresses : '台北市南港區市民大道八段552號 ',
+            phone : '02 2788 0615 ',
+            time: ' 10:00-22:00',
+            img : 'taipei_citizn.jpg ',
+            web : ' https://www.facebook.com/CivicBouldergymTaipei/?locale=zh_TW',
+            map :'https://goo.gl/maps/ADPhYHzghGXfBtXu8'
+            }      
+        ]
+        
+
+        function append_dot(){
+            for( let i=0 ; i<current_array.length ; i=i+1){
+                console.log(i)
+                if(i==0){
+                    $('.page_dot_box').empty() 
+                    $('.page_dot_box').append(`<div class="page_dot"></div>`) 
+                }else{
+                    $('.page_dot_box').append(`<div class="page_dot"></div>`) 
+                }
+                
+            }
+        }    
+
+        let current_array =null
+        
+        $('.location_btn').click(function(e){
+             
+
+            console.log('local', $(e.target).attr('local'))
+
+            if($(e.target).attr('local')== 'north'){
+
+                $(function(){
+                    current_array= northGymArray
+                    console.log('current_array.length', current_array.length)
+                    
+                    let i = 0
+                    let current_img = current_array[i].img
+                    let current_name = current_array[i].name
+                    let current_addresses = current_array[i].addresses
+                    let current_phone = current_array[i].phone
+                    let current_time = current_array[i].time
+                    let current_web = current_array[i].web
+                    let current_map = current_array[i].map
+                   
+                    let cardHtml = `<div class="gym_photo">
+                            <img class="w-100 h-100" src="${current_img}" alt="">
+                        </div>
+                        <div class="gym_info mb-3">
+                            <h4>${current_name}</h4>
+                            <p>${current_addresses}</p>
+                            <p>${current_phone}</p>
+                            <p>${current_time}</p>
+                            <div class="icon">
+                            <a class="text-decoration-none color_darkblue" href="${current_web}">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a class="text-decoration-none color_darkblue" href="${current_map}">
+                                <i class="fa-solid fa-location-dot"></i>
+                             </a>
+                            </div>
+                        </div>
+                        <div class="page_dot_box">
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                            <div class="page_dot"></div>
+                        </div>`
+
+                    $('.gym_card').empty().append(cardHtml)
+                    append_dot()
+                    console.log('array',current_array )
+                    console.log(cardHtml)
+                  
+
+                })
+            }
             
-        // }
-           
+        })                
 
         
     

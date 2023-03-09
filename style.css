@@ -88,6 +88,18 @@
             z-index: 50;
             color: var(--color-white);  
             transition: 0.5s;
+            opacity: 0;
+            animation: navshow 2.3s 0.3s forwards;
+            
+        }
+        @keyframes navshow {
+            50%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+            
         }
         
         .climbing_type{
@@ -143,24 +155,32 @@
         .gym_card{
             background-color: #FAF9DB;
             margin: auto;
-            padding: 160px 40px 10px 40px;
+            padding: 40px;
             position: relative;
             border-radius: 20px;
             box-shadow: 0 5px 10px #ac4d669c;  
+            
+        }
+        .gym_current_info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
         }
         .gym_photo{
             width: 80%;
             aspect-ratio: 4/3;
-            position: absolute;
-            top: -10%;
-            left:50%;
-            transform: translateX(-50%);
+            /* position: absolute; */
+            /* top: -10%; */
+            /* left:50%; */
+            /* transform: translateX(-50%); */
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 5px 10px #b3b3b39c;
         }
         .gym_info{
             color: #045E9E;
+            margin-top: 10px;
         }
         .gym_name{
             height: 60px;
@@ -184,7 +204,7 @@
         }
         nav{
             background-color: var(--color-pink3);
-            display: inline-block;  
+            display: none;  
             padding: 15px 20px;
             border-radius: 0 0 15px 15px;
             position: fixed;
@@ -193,6 +213,8 @@
             transform: translateX(-50%);
             box-shadow: 0 5px 10px #ac4d669c;
             z-index: 50;
+            transition: .5s;
+           
             
         }
         .climbing_type_box{
@@ -246,22 +268,28 @@
         .gym_card{
             background-color: #FAF9DB;
             margin: auto;
-            padding: 60px 40px 50px 320px;
+            padding: 60px  ;
             position: relative;
             border-radius: 20px;
             box-shadow: 0 5px 10px #ac4d669c;  
         }
+
+        .gym_current_info{
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-around;
+            margin-bottom: 20px;
+
+        }
         .gym_photo{
             width: 50%;
             aspect-ratio: 4/3;
-            position: absolute;
-            
-            left:-5%;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 5px 10px #b3b3b39c;
         }
         .gym_info{
+            margin-left: 10px;
             color: #045E9E;
         }
         .gym_name{
@@ -282,12 +310,42 @@
         position: absolute;
         top: 0;
         left: 0;
-        /* background-image:url(images/logo_big_white.svg); */
+        /* background-image:url(images/logo.svg); */
+        /* background-size: contain ;
+        background-repeat: no-repeat ;
+        background-position: center top ; */
+        z-index: 10;
+        padding-top: 80px;
+        
+        
+    }
+    .upper::after{
+        content: '';
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image:url(images/logo.svg);
         background-size: contain ;
         background-repeat: no-repeat ;
         background-position: center top ;
         z-index: 10;
         padding-top: 80px;
+        animation: logo_dis 2s  forwards;
+        pointer-events: none;
+        
+    }
+    @keyframes logo_dis {
+        50%{
+            
+            opacity: 1;
+        }
+
+        100%{
+            opacity: 0;
+        }
+        
     }
 
     .start_rope{
@@ -438,6 +496,9 @@
         text-decoration: underline;
     }
     /* --------------------sec1 competition--------------------- */
+    #sec1{
+        opacity: 0;
+    }
     .window_fram{
         width: 100%;
         height: auto;
@@ -460,6 +521,9 @@
     
 
     /* -------------------------sec2 equipment------------------------------------- */
+    #sec2{
+        opacity: 0;
+    }
     .sticker_game_prepare{
         background: url(images/sticker_game_mask.svg),url(images/sticker_game.svg)  ;
         background-size: contain ,contain;
@@ -488,6 +552,7 @@
         border:#045E9E 2px dashed;
         transition: .5s;
     }
+    
     .game_btn:hover {
         animation: turnrun2 5s linear infinite;
         background-color: var(--color-white);
@@ -544,6 +609,9 @@
         left: 50%;
     }
     /* -----------------------------sec3 gym-------------------------------------- */
+    #sec3{
+        opacity: 0;
+    }
     .gym_info h4{
         font-family:'Noto Sans TC' ;
         font-weight: 800;
@@ -589,6 +657,7 @@
         left: 0;
         display: none;
     }
+    
     .btn-local{
         position: relative;
         z-index: 1;
@@ -647,6 +716,7 @@
         animation: low-code-move 15s linear infinite 0s;
         display: flex;
         flex-direction: column;
+        z-index: 90;
     }
 
     .leftline2 {
@@ -660,6 +730,7 @@
         animation: low-code-move2 15s linear infinite 0s;
         display: flex;
         flex-direction: column;
+        z-index: 90;
     
     }
     .rightline{
@@ -684,6 +755,7 @@
         animation: low-code-move2 15s linear infinite 0s;
         display: flex;
         flex-direction: column;
+        z-index: 90;
         
     }
 

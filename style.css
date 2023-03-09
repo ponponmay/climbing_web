@@ -37,7 +37,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position:  center top; */
-        /* overflow: hidden; */
+        overflow: hidden;
         /* 畫面一開始不給滑動 */
     }
     .papa{
@@ -199,6 +199,18 @@
     }
     /* -------------------------電腦版------------------------------------ */
     @media screen and (min-width:992px) {
+
+        .modal-dialog{
+            max-width: 920px;
+        }
+        .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+        .modal-footer{
+            border: none;
+            justify-content: center;
+        }
         .mb-200px{
             margin-bottom: 200px;
         }
@@ -480,7 +492,9 @@
         top: 0;
         left: 50%;
         z-index: -1;
+        /* animation: translateY  1s linear infinite; */
     }
+    
 
     /* ----------------------nav----------------------------------------------------- */
    
@@ -540,17 +554,18 @@
         position: relative;
         transition: .3s;
     }
+    
     .game_btn{
-        position: absolute;
         width: 20%;
         aspect-ratio: 1/1;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
         border-radius: 50%;
         background-color: transparent;
         border:#045E9E 2px dashed;
-        transition: .5s;
+       
+        /* transition: .5s; */
+    }
+    .game_btn span{
+        color: var(--color-blue4);
     }
     
     .game_btn:hover {
@@ -564,24 +579,28 @@
     }
     @keyframes turnrun2 {
         0% {
-            transform:translate(-50%, -50px) rotate(0deg);
+            transform: rotate(0deg);
         }
         50%{
-            transform:translate(-50%, -50px) rotate(180deg);
+            transform:rotate(180deg);
         }
         100%{
-            transform:translate(-50%, -50px) rotate(360deg);
+            transform:rotate(360deg);
         }
     }
-
-    .mission_card{
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
+    #sticker_game_area{
+        justify-content: center;
+        align-items: center;
+    }
+    .notion{
+        position: static;
+        z-index: 20;
         display: none;
         transition: .3s;
-        z-index: 20;
+
+
     }
+    
     .sticker{
         z-index: 10;
     }
@@ -662,9 +681,36 @@
         position: relative;
         z-index: 1;
     }
-   
-
-    /* ----------------marquee mobile------------------- */
+   .gym_card_btn{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    
+   }
+   .left_btn , .right_btn{
+    width: 10%;
+    pointer-events:all;
+    transition: 0.5s;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   .left_btn i, .right_btn i{
+    font-size: 1.8rem;
+    color: var(--color-yellow5);
+    transition: 0.3s;
+   }
+   .left_btn:hover i, .right_btn:hover i{
+    color: var(--color-green2);
+   }
+ 
+    /* ----------------marquee mobile- 水平跑馬燈------------------ */
     .horizontalline {
         
         background: url(images/marquee_horizontal.svg) repeat-x  1px 0;
@@ -676,6 +722,7 @@
         bottom: 0;
         animation: line-move 15s linear infinite 0s;
         display: flex;
+        z-index: 90;
         
     }
 
@@ -689,6 +736,7 @@
         bottom: 0;
         animation: line-move2 15s linear infinite 0s;
         display: flex;
+        z-index: 90;
         
     
     }
@@ -775,6 +823,7 @@ footer{
     position: sticky;
     bottom: 0;
     z-index: -60;
+    /* pointer-events: none; */
 }
 .my-info p, .social a{
     color: var(--color-white);
@@ -803,6 +852,8 @@ input{
     background-color: transparent;
     padding: 0 0 5px 13px;
     width: 100%;
+    position: relative;
+    z-index: 100;
 
 }
 input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

@@ -15,6 +15,7 @@
     <!-- <link href="draganddrop.css" rel="stylesheet">
     <script src="draganddrop.js"></script>
     <script src="./js/jquery-3.6.3.min.js"></script> -->
+    <link rel="shortcut icon" href="images/favicon.ico">
     <style>
         .mobile_menu{
             height: 30%;
@@ -186,11 +187,13 @@
                     </div>
                 </div>
 
-                <div id="sticker_game_area" class="d-none d-lg-block col-lg-6  sticker_game_prepare">
-                    <button class="game_btn  color_darkblue">
+                <div id="sticker_game_area" class="d-none d-lg-flex col-lg-6  sticker_game_prepare">
+                    <button class="game_btn  animate__animated">
                         <span >Start <br> Game </span> 
                     </button>
-                    <img class="mission_card w-50 position-absolute" src="images/mission.svg" alt="">
+                    <div class="notion text-center animate__animated">
+                        <img class="mission_card w-100  " src="images/mission.svg" alt="">
+                    </div>
                     <div id="ans_helmet" class="sticker_ans d-none d-lg-block" space="null"></div>
                     <div id="ans_harness" class="sticker_ans d-none d-lg-block" space="null"></div>
                     <div id="ans_chalkbag" class="sticker_ans d-none d-lg-block" space="null"></div>
@@ -252,6 +255,10 @@
                             <div class="page_dot"></div>
                             <div class="page_dot"></div>
                             <div class="page_dot"></div>
+                        </div>
+                        <div class="gym_card_btn">
+                            <div class="left_btn"><i class="fa-solid fa-caret-left"></i></div>
+                            <div class="right_btn"><i class="fa-solid fa-caret-right"></i></div>
                         </div>
                         
                     </div>
@@ -444,10 +451,10 @@
 
 
         // 畫面重整回到最上方
-        // $('html,body').animate({
-        //     scrollTop:0,
-        //     screenLeft:0,
-        // },0)
+        $('html,body').animate({
+            scrollTop:0,
+            screenLeft:0,
+        },0)
 
         
     
@@ -541,15 +548,17 @@
             
             $('#sticker_game_area').removeClass('sticker_game_prepare').addClass('sticker_game')
             $('.game_btn').hide()
-            $('.mission_card').show()
+            $('.notion').show()
+            bounceIn()
             $('#sticker_helmet').css({'width': '18%','top':'27%','left': '25%','transform': 'rotate(-50deg)'})
             $('#sticker_harness').css({'width': '30%','top': '27%','left':'50%',})
             $('#sticker_chalkbag').css({'width': '10%','top': '60%','left': '20%',})
             $('#sticker_shoes').css({'width': '35%','top': '63%','left': '50%',})
         })
         // -----------關閉任務卡----------
-        $('.mission_card').click(function(){
-            $('.mission_card').hide()
+        $('.notion').click(function(){
+            bounceOut()
+            // $('.notion').hide()
 
             // ----------------黏貼貼紙
             $(function(){
@@ -628,30 +637,62 @@
                 function all_complete_show(){
                     if(helmet_complete & harness_complete & chalkbag_complete & shoes_complete ){
                         $('.mission_card').attr('src','images/mission_clear.svg')
-                        $('.mission_card').show();
+                        
+                        $('.notion').show()
+                        bounceIn()
+                        
                         setTimeout(
                             function(){
-                                $('.mission_card').hide()
-                                $('.mission_card').attr('src','images/mission.svg')
+                                bounceOut()
                             }
                             ,1000
                         )
                         setTimeout(function(){
+                            $('.mission_card').attr('src','images/mission.svg')
+                        },1500)
+                        
+                        setTimeout(function(){
+                            bounceIn_btn()
                             $('.game_btn').show()
-                                      .css('top','20%')
-                                      .css('left','70%')
-                                    //   .css('width','10%')
+                                    .css('position','absolute') 
+                                    .css('top','10%')
+                                    .css('left','70%')
+                                    .css('width','10%')
+                                    .css('border-color','#EA7494')
                                     //   .css('animation',' turnrun2 5s linear infinite')
-                            $('.game_btn span').text('Restart')
-                                                // .css('font-size','0.5rem')
+                            $('.game_btn span').text('Reset')
+                                                .css('font-size','0.4rem')
+                                                .css('color','#EA7494')
 
                                         // .css('animation',' turnback 5s linear infinite')
-                        },1000
+                        },1500
                         )
                     }
                     }
             }); 
         })
+        function bounceIn_btn(){
+            let animate = 'animate__bounceIn' +$(this).text()
+            $('.game_btn').addClass(animate).one('animationend',function(){
+                $(this).removeClass(animate);
+            })
+        }
+        
+
+        function bounceIn(){
+            let animate = 'animate__bounceIn' +$(this).text()
+            $('.notion').addClass(animate).one('animationend',function(){
+                $(this).removeClass(animate);
+            })
+        }
+        function bounceOut(){
+            let animate = 'animate__bounceOut' +$(this).text()
+            $('.notion').addClass(animate).one('animationend',function(){
+                $(this).removeClass(animate).hide();
+            })
+        }
+
+
         // -------------------------gym slider-----------------
 
         let northGymArray = [
@@ -795,7 +836,7 @@
 
         function append_dot(){
             for( let i=0 ; i<current_array.length ; i=i+1){
-                console.log(i)
+                // console.log(i)
                 if(i==0){
                     $('.page_dot_box').empty() 
                     $('.page_dot_box').append(`<div class="page_dot"></div>`) 
@@ -806,7 +847,10 @@
             }
         }    
 
-        let current_array =northGymArray
+        
+
+        // --------地區標籤tag
+
         function tagin(e){
             if($(window).width()<=992){
                 $(e.target).find('.btn_tag').removeClass('animate__fadeInUp')
@@ -818,33 +862,28 @@
                 $(e.target).siblings().find($('.btn_tag')).css('display','none')
             }
         }
+        // 點選地區標籤，找到對應array 並且顯示第一筆資料
+        let current_array =northGymArray
+        let current_index = 0
 
         $('.location_btn').click(function(e){
-       
+            current_index = 0
             tagin(e)
-            
-            // $(e.target).find('.btn_tag').removeClass('animate__fadeInLeft')
-            // $(e.target).find('.btn_tag').css('display','block').addClass('animate__fadeInLeft')
-            // $(e.target).siblings().find($('.btn_tag')).css('display','none')
-
             
             let local = $(e.target).attr('local')
 
             if (local == 'north'){
                 current_array= northGymArray
-
             }else if(local == 'middle'){
                 current_array= middleGymArray
-
             }else if(local == 'south'){
                 current_array= southGymArray
-
             }else{
                 current_array= eastGymArray
             }
             
             $(function(){
-                console.log('current_array.length', current_array.length)
+                // console.log('current_array.length', current_array.length)
                 
                 let i = 0
                 let current_img = current_array[i].img
@@ -878,15 +917,47 @@
                 append_dot() 
             })  
         })
-        //--------點擊顯示點時。動態生成資料
-         
-                        
+       
+        //--------點擊顯示點時。顯示對應資料          
         $('.page_dot_box').on("click",$('.page_dot'),function(e){
 
-            console.log($(e.target).index())
-            let current_index = $(e.target).index()
-            $('.page_dot').eq(current_index).css('background-color','var(--color-pink4)').siblings().css('background-color','var(--color-pink2)')
+            // console.log($(e.target).index())
+            current_index = $(e.target).index()
+            changepic()
+            fadeInRight()
+                // $('.gym_card').addClass('animate__slideInRight') 
+        })
 
+        $('.right_btn').click(function(){
+            console.log(current_index)
+            current_index= current_index+1
+            if(current_index >= current_array.length){
+                current_index = current_index-current_array.length
+                changepic()
+                fadeInRight()
+            }else{
+                changepic()
+                fadeInRight()
+            }
+        })
+        $('.left_btn').click(function(){
+            console.log(current_index)
+            current_index= current_index-1
+            if(current_index < 0){
+                current_index = current_index + current_array.length
+                changepic()
+                fadeInRight()
+                
+            }else{
+                changepic()
+                fadeInRight()
+            }
+        })
+
+        // --------------以目前index抓新資料顯示
+        function changepic(){
+            $('.page_dot').eq(current_index).css('background-color','var(--color-pink4)').siblings().css('background-color','var(--color-pink2)')
+            
             i = current_index
             current_img = current_array[i].img
             current_name = current_array[i].name
@@ -915,16 +986,22 @@
                     </div>
                     `
 
-                $('.gym_current_info').empty().append(cardHtml)
+            $('.gym_current_info').empty().append(cardHtml)
                 
-                let animate = 'animate__slideInRight' +$(this).text()
-                $('.gym_current_info').addClass(animate).one('animationend',function(){
-                    $(this).removeClass(animate);
-                })
+        }
+        function fadeInRight(){
+            let animate = 'animate__fadeInRight' +$(this).text()
+            $('.gym_current_info').addClass(animate).one('animationend',function(){
+                $(this).removeClass(animate);
+            })
 
-                // $('.gym_card').addClass('animate__slideInRight')
-            
-        })
+        }
+        
+
+
+
+
+
 
         // ---手機板 主視覺拖曳繩索功能
         // $(function(){
@@ -1014,7 +1091,12 @@
                 $('#sec3').removeClass('animate__fadeInUp')
             }
         })
-    
+        $(window).on('scroll', function() {
+            $('.rope_straight img').css('--scroll', window.pageYOffset / ($('body').outerHeight() - $(window).height()));
+        });
+        
+
+
 
     </script>
     

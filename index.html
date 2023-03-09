@@ -70,7 +70,7 @@
 </head>
 <body>
     <div class="papa position-relative">
-        <nav class="nav_bar">
+        <nav class="nav_bar animate__animated">
             <a id="top_logo" class="d-lg-none w-25" href="">
                 <img  src="images/logo.svg" alt="">
             </a>
@@ -115,13 +115,13 @@
        
         <!-- -----------------------sec1 competition-------------------------------- -->
         <div id="sec1" class="container competition mb-200px pt-5 animate__animated">
-            <div class="row title mb-3 ">
+            <div class="row title mb-3 sec_one_title animate__animated">
                 <div class="col-6 col-lg-4 ">
                     <img src="images/title_completment_p.svg" alt="">
                 </div>
                 
             </div>
-            <div class="row animate__animated">
+            <div class="row sec_one_content animate__animated">
                 <div class="col-12 col-lg-8 position-relative h-auto">
                     <div class="window_fram">
                         <img src="images/window_fram_bg.svg" alt="">
@@ -166,12 +166,12 @@
         </div>
         <!-- ---------------------------sec2 equipment--------------------------------- -->
         <div id="sec2" class="container sec_equipment mb-200px pt-5 animate__animated">
-            <div class="row animate__animated title mb-3">
+            <div class="row sec_two_title animate__animated title mb-3">
                 <div class="col-6 col-lg-4 ">
                     <img  src="images/title_equipment_p.svg" alt="">
                 </div>
             </div>
-            <div class="row animate__animated">
+            <div class="row sec_two_content animate__animated">
                 <div class="col-12 col-lg-6 sticker_card d-flex position-relative">
                     <div class="sticker " id="sticker_helmet">
                         <img  src="images/sticker_helmet.svg" alt="">                    
@@ -204,12 +204,12 @@
         </div>
     <!-- ------------------------------sec3 gym------------------------------------ -->
         <div id="sec3" class="container sec_gym pb-5 pt-5 animate__animated">
-            <div class="row animate__animated title mb-3">
+            <div class="row sec_three_title animate__animated title mb-3">
                 <div class="col-6 col-lg-4">
                     <img  src="images/title_gym_p.svg" alt="">
                 </div>
             </div>
-            <div class="row animate__animated">
+            <div class="row sec_three_content animate__animated">
                 <div class="col-12 col-lg-3 d-flex flex-lg-column justify-content-around ps-lg-5">
                     <div class="location_btn location_btn_bg animate__animated" local="north">
                         <img class="btn-local w-75  w-lg-60" src="images/gym_north_b.svg" alt="">
@@ -303,12 +303,16 @@
                 </div>
                 <div class="col-12 col-lg-8">
                     <div class="arrow position-relative">
-                        <p class="position-absolute fs-7 ff-16bit">Contant Us</p>
+                        <p class="position-absolute fs-7 ff-16bit">Contact Us</p>
                         <img class="w-50" src="images/icon_arrow_white.svg" alt="">
                     </div>
                     <div class="email d-flex position-relative">
-                        <input class="ff-16bit" type="text" placeholder="your e-mail" >
-                        <button class="footer_btn ff-16bit position-absolute">Surbscr Now!</button>
+                        <input class="ff-16bit email_input" type="text" placeholder="your e-mail" >
+                        <button class="footer_btn ff-16bit position-absolute">Subscr Now!</button>
+                        <div class="my_toast animate__animated">
+                            <h6 class=" color_pink">Succeed!</h6>
+                            <p class=" color_darkblue">We have received your e-mail , please wait patiently for contact!</p>
+                        </div>
                     </div>
                     
                 </div>
@@ -390,63 +394,7 @@
 
     
 
-    <!-- <script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script> 
-    <script src="jquery.ui.touch-punch.min.js"></script> 
-     -->
-    <!-- <script src="../jquery-ui-1.13.0/external/jquery/jquery.js"></script>
-    <script src="../jquery-ui-1.13.0.custom/jquery-ui.min.js"></script>
-    <script src="../jquery-ui-1.13.0/jquery-ui.min.js"></script>
-    <script src="../jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script> -->
-    <script>
-        // document.addEventListener('touchstart', handler, {capture: true});
-        // addEventListener(document, "touchstart", function(e) {
-        //     console.log(e.defaultPrevented);  // will be false
-        //     e.preventDefault();   // does nothing since the listener is passive
-        //     console.log(e.defaultPrevented);  // still false
-        // }, Modernizr.passiveeventlisteners ? {passive: true} : false);
-
-
-        // $(document).on('touchstart', handler, {capture: true});
-
-        // $(document).on('touchstart', function(e) {
-        //     console.log(e.defaultPrevented);  // will be false
-        //     e.preventDefault();   // does nothing since the listener is passive
-        //     console.log(e.defaultPrevented);  // still false
-        // }, Modernizr.passiveeventlisteners ? {passive: true} : false);
-
-        // $(element).on('touchmove', function(event) {
-        //     // your touchmove event handler
-        //     }, { passive: true });
-       
-
-        // addEventListener('touchmove', myTouchMoveHandler, { passive: true });
-
-
-
-        //         // 綁定觸控事件
-        // $(".start_rope").on("touchstart", function(event) {
-        //   // 防止滾動事件
-        //   event.preventDefault();
-        //   // 取得目標元素的位置
-        //   var target = $(this);
-        //   var startX = event.originalEvent.touches[0].pageX - target.offset().left;
-        //   var startY = event.originalEvent.touches[0].pageY - target.offset().top;
-        //   // 綁定觸控移動事件
-        //   $(document).on("touchmove", function(event) {
-        //     // 防止滾動事件
-        //     event.preventDefault();
-        //     // 計算元素位置
-        //     var endX = event.originalEvent.touches[0].pageX - startX;
-        //     var endY = event.originalEvent.touches[0].pageY - startY;
-        //     // 移動目標元素
-        //     target.css({
-        //       left: endX + "px",
-        //       top: endY + "px"
-        //     });
-        //   });
-        // });
-
-    </script>
+    
     <script>
 
 
@@ -497,7 +445,16 @@
             $('body').css('overflow', 'auto')
             $('.rope_box').css('opacity','1')
             $('.papa').css('z-index','1')
-            $('.nav_bar').show()
+            $('footer').css('z-index','auto')
+            
+            $('.nav_bar').css('display','flex')
+            setTimeout(
+                function(){
+                    $('.nav_bar').css('opacity', '1')
+                } , 100
+            )
+
+            
         })
 
         // ---------------手機版本選單開啟-----------------------
@@ -530,7 +487,7 @@
         }
         // -----------------手機版本選單。點選後。選單自動消失----------------
         $('.menu_a_group').click(function(){
-            if($('nav').attr('class')=='mobile_menu'){
+            if($('nav').attr('class')=='nav_bar mobile_menu'){
             console.log(11111)
             $('nav').removeClass('mobile_menu')
             $('.menu_a_group').removeClass('menu_a_grop_show')
@@ -998,41 +955,6 @@
         }
         
 
-
-
-
-
-
-        // ---手機板 主視覺拖曳繩索功能
-        // $(function(){
-        //     if($(window).width()<=992){
-        //         console.log('2222222222222222222')
-            
-        
-        //         // $(function () {
-        //         //     $(".start_rope").sortable();
-        //         // });
-        //         $(function() {
-                    
-        //             $( ".start_rope" ).draggable({ revert: "valid" ,touchAction: "none", });
-        //             console.log('3333333333333333')
-                
-        //             $( ".carabiner_check" ).droppable({
-        //             accept: ".start_rope",
-                    
-
-        //                 drop: function( event, ui ) {
-        //                     $( this )
-        //                     .addClass( "ui-state-highlight" )
-        //                     .find( "p" )
-        //                     .html( "已放置！" );
-        //                     $( ".start_rope" ).draggable( "destroy" );
-        //                 }
-        //             });
-        //         })
-        //     }
-        // })
-        
         // --------------nav 視窗下滑時消失
         let lastScroll = 0;
 
@@ -1057,43 +979,122 @@
             }
         })
         //    ---------------視窗滾動 物件淡入
+        if($(window).width()>992){
+            $(window).scroll(function () {
+            const nowScroll = $(window).scrollTop();
+            const boxOffsetTop = $('.sec_one_title').offset().top;
+            const widowHeight = $(window).height();
+            if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                $('.sec_one_title').addClass('animate__fadeInUp')
+            }else{
+                $('.sec_one_title').removeClass('animate__fadeInUp')
+            }   
+            })
+            $(window).scroll(function () {
+                const nowScroll = $(window).scrollTop();
+                const boxOffsetTop = $('.sec_one_content').offset().top;
+                const widowHeight = $(window).height();
+                if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                    $('.sec_one_content').addClass('animate__fadeInUp')
+                }else{
+                    $('.sec_one_content').removeClass('animate__fadeInUp')
+                }    
+            })
+            $(window).scroll(function () {
+                const nowScroll = $(window).scrollTop();
+                const boxOffsetTop = $('.sec_two_title').offset().top;
+                const widowHeight = $(window).height();
+                if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                    $('.sec_two_title').addClass('animate__fadeInUp')
+                }else{
+                    $('.sec_two_title').removeClass('animate__fadeInUp')
+                }    
+            })
+            $(window).scroll(function () {
+                const nowScroll = $(window).scrollTop();
+                const boxOffsetTop = $('.sec_two_content').offset().top;
+                const widowHeight = $(window).height();
+                if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                    $('.sec_two_content').addClass('animate__fadeInUp')
+                }else{
+                    $('.sec_two_content').removeClass('animate__fadeInUp')
+                }    
+            })
+            $(window).scroll(function () {
+                const nowScroll = $(window).scrollTop();
+                const boxOffsetTop = $('.sec_three_title').offset().top;
+                const widowHeight = $(window).height();
+                if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                    $('.sec_three_title').addClass('animate__fadeInUp')
+                }else{
+                    $('.sec_three_title').removeClass('animate__fadeInUp')
+                }    
+            })
+            $(window).scroll(function () {
+                const nowScroll = $(window).scrollTop();
+                const boxOffsetTop = $('.sec_three_content').offset().top;
+                const widowHeight = $(window).height();
+                if (nowScroll >= (boxOffsetTop - widowHeight )) {
+                    $('.sec_three_content').addClass('animate__fadeInUp')
+                }else{
+                    $('.sec_three_content').removeClass('animate__fadeInUp')
+                }    
+            })
 
-        $(window).scroll(function () {
+        }else{
+            console.log(1111111111111111111111)
+            $(window).scroll(function () {
             const nowScroll = $(window).scrollTop();
             const boxOffsetTop = $('#sec1').offset().top;
             const widowHeight = $(window).height();
             if (nowScroll >= (boxOffsetTop - widowHeight )) {
                 $('#sec1').addClass('animate__fadeInUp')
-            }
-            else {
+            }else{
                 $('#sec1').removeClass('animate__fadeInUp')
-            }
-        })
-        $(window).scroll(function () {
+            }   
+            })
+            $(window).scroll(function () {
             const nowScroll = $(window).scrollTop();
             const boxOffsetTop = $('#sec2').offset().top;
             const widowHeight = $(window).height();
             if (nowScroll >= (boxOffsetTop - widowHeight )) {
                 $('#sec2').addClass('animate__fadeInUp')
-            }
-            else {
+            }else{
                 $('#sec2').removeClass('animate__fadeInUp')
-            }
-        })
-        $(window).scroll(function () {
+            }   
+            })
+            $(window).scroll(function () {
             const nowScroll = $(window).scrollTop();
             const boxOffsetTop = $('#sec3').offset().top;
             const widowHeight = $(window).height();
             if (nowScroll >= (boxOffsetTop - widowHeight )) {
                 $('#sec3').addClass('animate__fadeInUp')
-            }
-            else {
+            }else{
                 $('#sec3').removeClass('animate__fadeInUp')
-            }
+            }   
+            })
+
+        }
+        $('.footer_btn').click(function(){
+            $('.my_toast').show();
+            $('.my_toast').addClass('animate__fadeInUp').one('animationend',function(){
+                $(this).removeClass('animate__fadeInUp');
+            });
+            $('.email_input').val("")
+            setTimeout(
+                function(){
+                    $('.my_toast').addClass('animate__fadeOutDown').one('animationend',function(){
+                        $(this).removeClass('animate__fadeOutDown');
+                        $('.my_toast').hide()
+                        })
+
+                } , 3000
+            )
+
         })
-        $(window).on('scroll', function() {
-            $('.rope_straight img').css('--scroll', window.pageYOffset / ($('body').outerHeight() - $(window).height()));
-        });
+
+        
+        
         
 
 

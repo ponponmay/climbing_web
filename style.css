@@ -73,11 +73,16 @@
 
     /* --------------------------------手機版----------------------------------- */
     @media screen and (max-width:992px) {
+        #sec1,#sec2,#sec3{
+            opacity: 0;
+        }
+
         .mb-200px{
             margin-bottom: 100px;
         }
         nav{
-            display: flex;
+
+            display: none;
             width: 100%;
             height: auto;
             justify-content: space-between;
@@ -89,7 +94,7 @@
             color: var(--color-white);  
             transition: 0.5s;
             opacity: 0;
-            animation: navshow 2.3s 0.3s forwards;
+            animation: navshow 1s  forwards;
             
         }
         @keyframes navshow {
@@ -192,13 +197,33 @@
         .menu_a_group{
             display: none;
         }
-
+        .my_toast{
+            width:70%;
+            background-color: var(--color-white);
+            border-radius: 10px;
+            position: fixed;
+            right: 3%;
+            bottom:5%;
+            padding: 10px 15px;
+            box-shadow: 5px 5px 5px #42a794;
+            display: none;
+        
+        }
+        .my_toast p{
+            margin: 0;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
 
             
 
     }
     /* -------------------------電腦版------------------------------------ */
     @media screen and (min-width:992px) {
+        /* 為了滑動淡入效果 */
+        .sec_one_title,.sec_one_content,.sec_two_title,.sec_two_content,.sec_three_title,.sec_three_content{
+            opacity: 0;
+        }
 
         .modal-dialog{
             max-width: 920px;
@@ -225,9 +250,17 @@
             transform: translateX(-50%);
             box-shadow: 0 5px 10px #ac4d669c;
             z-index: 50;
-            transition: .5s;
-           
-            
+            transition: 0.5s;
+            opacity: 0;
+            /* animation: navshow 1s  forwards;   */
+        }
+        @keyframes navshow {
+            50%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
         }
         .climbing_type_box{
             right: 5%;
@@ -309,6 +342,23 @@
         }
         .gym_time{
             height: 48px;
+        }
+        .my_toast{
+            width: 15%;
+            background-color: var(--color-white);
+            border-radius: 10px;
+            position: fixed;
+            right: 3%;
+            bottom:2%;
+            padding: 10px 15px;
+            box-shadow: 5px 5px 5px #42a794;
+            display: none;
+        
+        }
+        .my_toast p{
+            margin: 0;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
     }
 
@@ -510,9 +560,9 @@
         text-decoration: underline;
     }
     /* --------------------sec1 competition--------------------- */
-    #sec1{
-        opacity: 0;
-    }
+    
+    
+
     .window_fram{
         width: 100%;
         height: auto;
@@ -535,9 +585,7 @@
     
 
     /* -------------------------sec2 equipment------------------------------------- */
-    #sec2{
-        opacity: 0;
-    }
+ 
     .sticker_game_prepare{
         background: url(images/sticker_game_mask.svg),url(images/sticker_game.svg)  ;
         background-size: contain ,contain;
@@ -628,9 +676,7 @@
         left: 50%;
     }
     /* -----------------------------sec3 gym-------------------------------------- */
-    #sec3{
-        opacity: 0;
-    }
+  
     .gym_info h4{
         font-family:'Noto Sans TC' ;
         font-weight: 800;
@@ -822,7 +868,7 @@ footer{
     padding: 50px 0 100px;
     position: sticky;
     bottom: 0;
-    z-index: -60;
+    z-index: -1;
     /* pointer-events: none; */
 }
 .my-info p, .social a{
@@ -853,7 +899,7 @@ input{
     padding: 0 0 5px 13px;
     width: 100%;
     position: relative;
-    z-index: 100;
+    
 
 }
 input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -862,13 +908,17 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     opacity: 0.5; 
 } 
 .footer_btn{
-    border: #FAF9DB solid 2px;
+    border: #FAF9DB solid 3px;
     border-radius: 30px;
     background-color: #FAF9DB;
     padding: 5px 20px;
     font-size: 0.5rem;
     color: #045E9E;
     right: 0;
-    
-    
+    transition: 0.3s;
 }  
+.footer_btn:hover{
+    border: var(--color-blue4) solid 3px;
+    background-color: var(--color-blue4);
+    color: var(--color-white);
+}

@@ -446,14 +446,17 @@
             $('.rope_box').css('opacity','1')
             $('.papa').css('z-index','1')
             $('footer').css('z-index','auto')
-            
             $('.nav_bar').css('display','flex')
+            
             if($(window).width()>992){
+                $('.nav_bar').css('display','flex')
                 setTimeout(
                 function(){
                     $('.nav_bar').css('opacity', '1')
                 } , 100
                 )
+            }else{
+                
             }
         })
 
@@ -488,8 +491,17 @@
         // -----------------手機版本選單。點選後。選單自動消失----------------
         $('.menu_a_group').click(function(){
             if($('nav').attr('class')=='nav_bar mobile_menu'){
-            console.log(11111)
+            console.log(222222222)
             $('nav').removeClass('mobile_menu')
+            $('.menu_a_group').removeClass('menu_a_grop_show')
+            $('#top_logo').css('display', 'block')
+            $('#top_logo ').css('order','0')
+            $('.fa-bars').css('display','inline')
+            $('.fa-xmark').css('display','none')  
+            $('.menu_a ').css('display','none')
+            }else{
+                console.log(2333333333333)
+                $('nav').removeClass('mobile_menu')
             $('.menu_a_group').removeClass('menu_a_grop_show')
             $('#top_logo').css('display', 'block')
             $('#top_logo ').css('order','0')

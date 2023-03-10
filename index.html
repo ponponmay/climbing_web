@@ -448,13 +448,13 @@
             $('footer').css('z-index','auto')
             
             $('.nav_bar').css('display','flex')
-            setTimeout(
+            if($(window).width()>992){
+                setTimeout(
                 function(){
                     $('.nav_bar').css('opacity', '1')
                 } , 100
-            )
-
-            
+                )
+            }
         })
 
         // ---------------手機版本選單開啟-----------------------
